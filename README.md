@@ -9,6 +9,7 @@
 + collideBoxBox()
 + collideBoxSphere()
 + collideSphereSphere()
+
 #### ~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~
 
 #### collideRectRect()
