@@ -13,19 +13,19 @@ p5.collide is [MIT licensed](../blob/master/LICENSE.txt)
 
 ## Table of Contents
 ##### 2D Collision Detection
-  + [collidePointPoint()](#collidePointPoint)
-  + [collidePointEllipse()](#collidePointEllipse)
-  + [collidePointRect()](#collidePointRect)
-  + [collideRectRect()](#collideRectRect)
-  + [collideEllipseEllipse()](#collideEllipseEllipse)
-  + [collideRectEllipse()](#collideRectEllipse)
+  + [collidePointPoint()](#collidepointpoint)
+  + [collidePointEllipse()](#collidepointellipse)
+  + [collidePointRect()](#collidepointrect)
+  + [collideRectRect()](#colliderectrect)
+  + [collideEllipseEllipse()](#collideellipseellipse)
+  + [collideRectEllipse()](#colliderectellipse)
 
 ##### 3D Collision Detection
 COMING SOON!
-  + [collidePointPoint()](#collidePointPoint)
-  + [collideBoxBox()](#collideBoxBox)
-  + [collideBoxSphere()](#collideBoxSphere)
-  + [collideSphereSphere()](#collideSphereSphere)
+  + [collidePointPoint()](#collidepointpoint)
+  + [collideBoxBox()](#collideboxbox)
+  + [collideBoxSphere()](#collideboxsphere)
+  + [collideSphereSphere()](#collidespheresphere)
 
 
 ## p5.collide examples & documentation
