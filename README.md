@@ -15,17 +15,17 @@ COMING SOON!
   + [collideBoxSphere()](#collideBoxSphere)
   + [collideSphereSphere()](#collideSphereSphere)
 
-#### License
-p5.collide is MIT licensed
-
-#### Other Info
+##### Other Info
 p5.collide contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
 
 [How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
 
 p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
-#### ~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~+~
+##### License
+p5.collide is MIT licensed
+
+#### ~+~+~+~+~+~+~ p5.collide examples & documentation ~+~+~+~+~+~+~+~+~+~+~+~+~
 
 #### collidePointPoint()
 ###### collidePointPoint((x, y, [z], x2, y2[2Dbuffer],[z2], [3Dbuffer])
