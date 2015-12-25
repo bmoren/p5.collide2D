@@ -1,4 +1,6 @@
 # p5.collide
+![p5.collide](p5collide.png)
+
 #### A lightweight 2d & 3d collision library for p5.js
 
 p5.collide contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
@@ -7,8 +9,7 @@ p5.collide contains some versions of, and references to, the functions in [Jeffr
 
 p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
-##### License
-p5.collide is MIT licensed
+p5.collide is [MIT licensed](../blob/master/LICENSE.txt)
 
 ## Table of Contents
 ##### 2D Collision Detection
