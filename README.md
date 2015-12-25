@@ -14,11 +14,11 @@ p5.collide is [MIT licensed](../blob/master/LICENSE.txt)
 ## Table of Contents
 ##### 2D Collision Detection
   + [collidePointPoint()](#collidepointpoint)
-  + [collidePointEllipse()](#collidepointellipse)
+  + [collidePointCircle()](#collidepointcircle)
   + [collidePointRect()](#collidepointrect)
   + [collideRectRect()](#colliderectrect)
-  + [collideEllipseEllipse()](#collideellipseellipse)
-  + [collideRectEllipse()](#colliderectellipse)
+  + [collideCircleCircle()](#collidecirclecircle)
+  + [collideRectCircle()](#colliderectcircle)
 
 ##### 3D Collision Detection
 COMING SOON!
