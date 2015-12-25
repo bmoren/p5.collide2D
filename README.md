@@ -1,5 +1,16 @@
 # p5.collide
 #### A lightweight 2d & 3d collision library for p5.js
+
+p5.collide contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
+
+[How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
+
+p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
+
+##### License
+p5.collide is MIT licensed
+
+## Table of Contents
 ##### 2D Collision Detection
   + [collidePointPoint()](#collidePointPoint)
   + [collidePointEllipse()](#collidePointEllipse)
@@ -15,17 +26,8 @@ COMING SOON!
   + [collideBoxSphere()](#collideBoxSphere)
   + [collideSphereSphere()](#collideSphereSphere)
 
-##### Other Info
-p5.collide contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
 
-[How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
-
-p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
-
-##### License
-p5.collide is MIT licensed
-
-#### ~+~+~+~+~+~+~ p5.collide examples & documentation ~+~+~+~+~+~+~+~+~+~+~+~+~
+## p5.collide examples & documentation
 
 #### collidePointPoint()
 ###### collidePointPoint((x, y, [z], x2, y2[2Dbuffer],[z2], [3Dbuffer])
