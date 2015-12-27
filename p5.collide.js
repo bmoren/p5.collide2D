@@ -2,6 +2,12 @@ console.log("### p5.collide ###")
 
 /*~++~+~+~++~+~++~++~+~+~ 2D ~+~+~++~+~++~+~+~+~+~+~+~+~+~+~+*/
 
+p5.prototype._collideDebug = false;
+
+p5.prototype.collideDebug = function(debugMode){
+    _collideDebug = debugMode;
+}
+
 p5.prototype.collideRectRect = function (x, y, w, h, x2, y2, w2, h2) {
   //2d
   //add in a thing to detect rectMode CENTER
@@ -107,9 +113,10 @@ p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diamete
   var onSegment = collidePointLine(closestX,closestY,x1,y1,x2,y2);
   if (!onSegment) return false;
 
-  // optionally, draw a circle at the closest
-  // point on the line
-  // ellipse(closestX, closestY, 20, 20);
+  // draw a debug circle at the closest point on the line
+  if(_collideDebug){
+    ellipse(closestX, closestY, 10, 10);
+  }
 
   // get distance to closest point
   distX = closestX - cx;
@@ -118,6 +125,38 @@ p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diamete
 
   if (distance <= diameter/2) {
     return true;
+  }
+  return false;
+}
+
+p5.prototype.collideLineLine = function(x1, y1, x2, y2, x3, y3, x4, y4,calcIntersection) {
+
+  // calculate the distance to intersection point
+  var uA = ((x4-x3)*(y1-y3) - (y4-y3)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
+  var uB = ((x2-x1)*(y1-y3) - (y2-y1)*(x1-x3)) / ((y4-y3)*(x2-x1) - (x4-x3)*(y2-y1));
+
+  // if uA and uB are between 0-1, lines are colliding
+  if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
+
+    if(_collideDebug || calcIntersection){
+      // calc the point where the lines meet
+      var intersectionX = x1 + (uA * (x2-x1));
+      var intersectionY = y1 + (uA * (y2-y1));
+    }
+
+    if(_collideDebug){
+      ellipse(intersectionX,intersectionY, 10,10);
+    }
+
+    if(calcIntersection){
+      var intersection = {
+        x:intersectionX,
+        y:intersectionY
+      }
+      return intersection;
+    }else{
+      return true;
+    }
   }
   return false;
 }

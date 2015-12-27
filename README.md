@@ -8,10 +8,14 @@ p5.collide contains some versions of, and references to, the functions in [Jeffr
 [How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
 
 p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
+All p5.collide functions return true if the specified geometry is colliding and false if they are not.
 
-p5.collide is [MIT licensed](../blob/master/LICENSE.txt)
+p5.collide is [MIT licensed](../master/LICENSE.txt)
 
 ## Table of Contents
+##### Utility
+  + [collideDebug](#collidedebug)
+
 ##### 2D Collision Detection
   + [collidePointPoint()](#collidepointpoint)
   + [collidePointCircle()](#collidepointcircle)
@@ -21,6 +25,7 @@ p5.collide is [MIT licensed](../blob/master/LICENSE.txt)
   + [collideRectCircle()](#colliderectcircle)
   + [collidePointLine()](#collidepointline)
   + [collideLineCircle()](#collidelinecircle)
+  + [collideLineLine()](#collidelineline)
 
 
 ##### 3D Collision Detection
@@ -32,6 +37,18 @@ COMING SOON!
 
 
 ## p5.collide examples & documentation
+
+#### collideDebug()
+######collideDebug(debugMode)
+Enables collision debug mode. Draws the collision between objects on screen where applicable and calculable:
++ [collideLineCircle()](#collidelinecircle)
++ [collideLineLine()](#collidelineline)
+
+```javascript
+function setup() {
+		collideDebug(true);
+}
+```
 
 #### collidePointPoint()
 ###### collidePointPoint((x, y, [z], x2, y2[2Dbuffer],[z2], [3Dbuffer])
@@ -163,14 +180,15 @@ function draw(){
 	line(200,300,100,150);
 	point(mouseX,mouseY);
 
-	hit = collidePointLine(mouseX,mouseY,200,300,100,150, .5);
+  //collide point line using the optional buffer with a 0.5 value
+	hit = collidePointLine(mouseX,mouseY,200,300,100,150, 0.5);
 
 	print("colliding? " + hit);
 }
 ```
 ####collideLineCircle()
 ######collideLineCircle(x1,  y1,  x2,  y2,  cx,  cy,  diameter)
-point to circle collision in 2D
+point to circle collision in 2D. Has a [debug mode](#collidedebug).
 ```javascript
 var hit = false;
 function draw(){
@@ -183,4 +201,39 @@ function draw(){
 
 }
 ```
+
+####collideLineLine()
+######collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4,calcIntersection)
+line to line collision in 2D. Takes an optional boolean parameter which calculates the intersection point. If enabled it will return an object containing the x,y position of the collision intersection. Has a [debug mode](#collidedebug).
+
+```javascript
+//basic example
+var hit = false;
+function draw(){
+  background(255);
+  line(200,300,100,150);
+  line(mouseX,mouseY,350,50);
+  hit = collideLineLine(200,300,100,150,mouseX,mouseY,350,50);
+
+  print("colliding? " + hit);
+}
+```
+```javascript
+//Return an object containing the x,y position of the intersection suing the optional calcIntersection boolean
+var hit = false;
+function draw(){
+  background(255);
+  line(200,300,100,150);
+  line(mouseX,mouseY,350,50);
+
+  hit = collideLineLine(200,300,100,150,mouseX,mouseY,350,50,true);
+
+  print("X-intersection:" + hit.x);
+  print("Y-intersection:" + hit.y);
+}
+```
+
+
+
+
 
