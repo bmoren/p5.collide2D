@@ -19,6 +19,9 @@ p5.collide is [MIT licensed](../blob/master/LICENSE.txt)
   + [collideRectRect()](#colliderectrect)
   + [collideCircleCircle()](#collidecirclecircle)
   + [collideRectCircle()](#colliderectcircle)
+  + [collidePointLine()](#collidepointline)
+  + [collideLineCircle()](#collidelinecircle)
+
 
 ##### 3D Collision Detection
 COMING SOON!
@@ -150,4 +153,34 @@ function draw() {
 }
 ```
 
+####collidePointLine()
+######collidePointLine(pointX, pointY, x, y, x2, y2, buffer)
+point to line collision in 2D, includes and optional buffer which expands the hit zone on the line (default buffer is 0.1).
+```javascript
+var hit = false;
+function draw(){
+  background(255);
+	line(200,300,100,150);
+	point(mouseX,mouseY);
+
+	hit = collidePointLine(mouseX,mouseY,200,300,100,150, .5);
+
+	print("colliding? " + hit);
+}
+```
+####collideLineCircle()
+######collideLineCircle(x1,  y1,  x2,  y2,  cx,  cy,  diameter)
+point to circle collision in 2D
+```javascript
+var hit = false;
+function draw(){
+  background(255);
+	line(200,300,100,150);
+	ellipse(mouseX,mouseY,50,50);
+	hit = collideLineCircle(200,300,100,150,mouseX,mouseY,50);
+
+	print("colliding? " + hit);
+
+}
+```
 
