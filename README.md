@@ -41,7 +41,7 @@ COMING SOON!
 
 #### collideDebug()
 ######collideDebug(debugMode, size, color)
-Enables collision debug mode. Draws an ellipse at the collision point between objects on screen where applicable and calculable. 
+Enables collision debug mode. Draws an ellipse at the collision point between objects on screen where applicable and calculable.
 + collideDebug() is applicable to the following:
 + [collideLineCircle()](#collidelinecircle)
 + [collideLineLine()](#collidelineline)
@@ -275,7 +275,39 @@ function draw() {
   print("rightY: " + hit.right.y);
 }
 ```
+#### collidePointPoly()
+##### collidePointPoly(pointX,pointY,vertexArray)
+Point to Poly Collision in 2D. Takes a point x,y and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions which make up the polygon. This function works with as many sided polygon as you desire, and also "collapsed" polygons where multiple triangles are formed from a single polygon shape overlapping itself.
 
+```javascript
+var hit = false;
+var poly = []; //store the vertices for our polygon
+function setup() {
+	createCanvas(500,500);
+	poly[0] = createVector(123,231);     // set X/Y positions
+	poly[1] = createVector(10,111);
+	poly[2] = createVector(20,23);
+	poly[3] = createVector(390,33);
+}
+
+function draw() {
+	background(255);
+
+  //draw the polygon from the created Vectors above.
+	beginShape();
+	for(i=0; i < poly.length; i++){
+		vertex(poly[i].x,poly[i].y);
+	}
+	endShape(CLOSE);
+
+	ellipse(mouseX,mouseY,10,10); //put a small ellipse on our point.
+
+	hit = collidePointPoly(mouseX,mouseY,poly); //3rd parameter is an array of vertices.
+
+	print("colliding? " + hit);
+
+}
+```
 
 
 

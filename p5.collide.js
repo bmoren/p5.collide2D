@@ -1,3 +1,8 @@
+/*
+Created by http://benmoren.com
+Some functions and code modified version from http://www.jeffreythompson.org/collision-detection
+*/
+
 console.log("### p5.collide ###")
 
 /*~++~+~+~++~+~++~++~+~+~ 2D ~+~+~++~+~++~+~+~+~+~+~+~+~+~+~+*/
@@ -202,6 +207,31 @@ p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcInte
     return true;
   }
   return false;
+}
+
+// POLYGON/POINT
+p5.prototype.collidePointPoly = function(px, py, vertices) {
+  var collision = false;
+
+  // go through each of the vertices, plus the next vertex in the list
+  var next = 0;
+  for (var current=0; current<vertices.length; current++) {
+
+    // get next vertex in list if we've hit the end, wrap around to 0
+    next = current+1;
+    if (next == vertices.length) next = 0;
+
+    // get the PVectors at our current position this makes our if statement a little cleaner
+    var vc = vertices[current];    // c for "current"
+    var vn = vertices[next];       // n for "next"
+
+    // compare position, flip 'collision' variable back and forth
+    if (((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+         (px < (vn.x-vc.x)*(py-vc.y) / (vn.y-vc.y)+vc.x)) {
+            collision = !collision;
+    }
+  }
+  return collision;
 }
 
 
