@@ -1,17 +1,18 @@
 /*
 Created by http://benmoren.com
 Some functions and code modified version from http://www.jeffreythompson.org/collision-detection
+MIT License
 */
 
 console.log("### p5.collide ###")
-
-/*~++~+~+~++~+~++~++~+~+~ 2D ~+~+~++~+~++~+~+~+~+~+~+~+~+~+~+*/
 
 p5.prototype._collideDebug = false;
 
 p5.prototype.collideDebug = function(debugMode){
     _collideDebug = debugMode;
 }
+
+/*~++~+~+~++~+~++~++~+~+~ 2D ~+~+~++~+~++~+~+~+~+~+~+~+~+~+~+*/
 
 p5.prototype.collideRectRect = function (x, y, w, h, x2, y2, w2, h2) {
   //2d

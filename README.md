@@ -10,6 +10,8 @@ p5.collide contains some versions of, and references to, the functions in [Jeffr
 p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 <br>All p5.collide functions return true if the specified geometry is colliding and false if they are not.
 
+[Moving on to object oriented collision](http://www.jeffreythompson.org/collision-detection/object_oriented_collision.php)
+
 p5.collide is [MIT licensed](LICENSE.txt)
 
 ## Table of Contents
@@ -33,7 +35,7 @@ p5.collide is [MIT licensed](LICENSE.txt)
   + [collideLinePoly()](#collidelinepoly)
   + [collidePolyPoly()](#collidepolypoly)
   + [collidePointTriangle()](#collidepointtriangle)
-  + [collide 2Dprimitive Triangle](#collide2Dprimitivetriangle)
+  + [collide 2Dprimitive Triangle](#collide-2Dprimitive-triangle)
 
 ##### 3D Collision Detection
 COMING SOON!
