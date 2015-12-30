@@ -29,6 +29,7 @@ p5.collide is [MIT licensed](LICENSE.txt)
   + [collideLineRect()](#collidelinerect)
   + [collidePointPoly()](#collidepointpoly)
   + [collideCirclePoly()](#collidecirclepoly)
+  + [collideRectPoly()](#colliderectpoly)
 
 ##### 3D Collision Detection
 COMING SOON!
