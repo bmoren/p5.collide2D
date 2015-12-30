@@ -20,16 +20,18 @@ p5.collide is [MIT licensed](LICENSE.txt)
   + [collidePointPoint()](#collidepointpoint)
   + [collidePointCircle()](#collidepointcircle)
   + [collidePointRect()](#collidepointrect)
+  + [collidePointLine()](#collidepointline)
   + [collideRectRect()](#colliderectrect)
   + [collideCircleCircle()](#collidecirclecircle)
   + [collideRectCircle()](#colliderectcircle)
-  + [collidePointLine()](#collidepointline)
-  + [collideLineCircle()](#collidelinecircle)
   + [collideLineLine()](#collidelineline)
+  + [collideLineCircle()](#collidelinecircle)
   + [collideLineRect()](#collidelinerect)
   + [collidePointPoly()](#collidepointpoly)
   + [collideCirclePoly()](#collidecirclepoly)
   + [collideRectPoly()](#colliderectpoly)
+  + [collideLinePoly()](#collidelinepoly)
+  + [collidePolyPoly()](#collidepolypoly)
 
 ##### 3D Collision Detection
 COMING SOON!
@@ -52,6 +54,8 @@ Enables collision debug mode. Draws an ellipse at the collision point between ob
 + [collideLineRect()](#collidelinerect)
 + [collideCirclePoly()](#collidecirclepoly)
 + [collideRectPoly()](#colliderectpoly)
++ [collideLinePoly()](#collidelinepoly)
+
 
 ```javascript
 function setup() {
@@ -123,7 +127,22 @@ function draw() {
 
 }
 ```
+####collidePointLine()
+######collidePointLine(pointX, pointY, x, y, x2, y2, [buffer])
+point to line collision in 2D, includes and optional buffer which expands the hit zone on the line (default buffer is 0.1).
+```javascript
+var hit = false;
+function draw(){
+  background(255);
+	line(200,300,100,150);
+	point(mouseX,mouseY);
 
+  //collide point line using the optional buffer with a 0.5 value
+	hit = collidePointLine(mouseX,mouseY,200,300,100,150, 0.5);
+
+	print("colliding? " + hit);
+}
+```
 #### collideCircleCircle()
 ###### collideCircleCircle(circleX, circleY,circleDiameter, circleX2, circleY2, circleDiameter2)
 circle to circle collision in 2D. Assumes ellipseMode(CENTER);
@@ -176,39 +195,6 @@ function draw() {
 	print("colliding? " + hit);
 }
 ```
-
-####collidePointLine()
-######collidePointLine(pointX, pointY, x, y, x2, y2, [buffer])
-point to line collision in 2D, includes and optional buffer which expands the hit zone on the line (default buffer is 0.1).
-```javascript
-var hit = false;
-function draw(){
-  background(255);
-	line(200,300,100,150);
-	point(mouseX,mouseY);
-
-  //collide point line using the optional buffer with a 0.5 value
-	hit = collidePointLine(mouseX,mouseY,200,300,100,150, 0.5);
-
-	print("colliding? " + hit);
-}
-```
-####collideLineCircle()
-######collideLineCircle(x1,  y1,  x2,  y2,  cx,  cy,  diameter)
-point to circle collision in 2D. Has a [debug mode](#collidedebug).
-```javascript
-var hit = false;
-function draw(){
-  background(255);
-	line(200,300,100,150);
-	ellipse(mouseX,mouseY,50,50);
-	hit = collideLineCircle(200,300,100,150,mouseX,mouseY,50);
-
-	print("colliding? " + hit);
-
-}
-```
-
 ####collideLineLine()
 ######collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4, [calcIntersection])
 line to line collision in 2D. Takes an optional boolean parameter which calculates the intersection point. If enabled it will return an object containing the x,y position of the collision intersection. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
@@ -240,6 +226,21 @@ function draw(){
 }
 ```
 
+####collideLineCircle()
+######collideLineCircle(x1,  y1,  x2,  y2,  cx,  cy,  diameter)
+point to circle collision in 2D. Has a [debug mode](#collidedebug).
+```javascript
+var hit = false;
+function draw(){
+  background(255);
+	line(200,300,100,150);
+	ellipse(mouseX,mouseY,50,50);
+	hit = collideLineCircle(200,300,100,150,mouseX,mouseY,50);
+
+	print("colliding? " + hit);
+
+}
+```
 ####collideLineRect()
 ######collideLineRect(x1, y1, x2, y2, rx, ry, rw, rh, [calcIntersection])
 Line to Rectangle collision in 2d. Takes and optional boolean parameter which calculates the intersection points. If enables it will return an object containing objects of the top,left,bottom,right X,Y intersection positions. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
@@ -349,7 +350,7 @@ function draw() {
 
 #### collideRectPoly()
 ##### collideRectPoly(x,y,width,height,vectorArray, [interiorCollision])
-Rect to Poly Collision in 2D. Takes a rect x,y,width,height and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 6th 'true' boolean parameter which enables the collision detection if the circle is wholly inside the polygon. The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
+Rect to Poly Collision in 2D. Takes a rect x,y,width,height and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 6th 'true' boolean parameter which enables the collision detection if the rect is wholly inside the polygon. The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
 
 ```javascript
 var hit = false;
@@ -388,14 +389,14 @@ Line to Poly Collision in 2D. Takes a line x,y,x2,y2 and an array of [p5.Vector]
 
 ```javascript
 var hit = false;
-var poly = [];
+var poly = new Array(16);;
 function setup() {
 	createCanvas(windowWidth,windowHeight);
 	collideDebug(true)
 
 	//generate a 16 sided polygon
-  var angle = TWO_PI / 16;
-  for (var i=0; i<16; i++) {
+  var angle = TWO_PI / poly.length;
+  for (var i=0; i<poly.length; i++) {
     var a = angle * i;
     var x = 300 + cos(a) * 100;
     var y = 200 + sin(a) * 100;
@@ -418,6 +419,66 @@ function draw() {
 	print("colliding? " + hit);
 }
 ```
+#### collidePolyPoly()
+##### collidePolyPoly(polygon1, polygon2, [interiorCollision])
+Polygon to Polygon Collision in 2D. Takes a 2 arrays of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygons. This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 3rd 'true' boolean parameter which enables the collision detection if the polygon is wholly inside the other polygon. The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
+
+```javascript
+//example adapted from Jeffrey Thompson
+var hit = false;
+var poly = new Array(8);
+var randomPoly = []
+function setup() {
+	createCanvas(windowWidth,windowHeight);
+	collideDebug(true) //enable debug mode
+
+	//generate a uniform sided polygon
+  var angle = TWO_PI / poly.length;
+  for (var i=0; i<poly.length; i++) {
+    var a = angle * i;
+    var x = 300 + cos(a) * 100;
+    var y = 200 + sin(a) * 100;
+    poly[i] = createVector(x,y);
+  }
+
+  // create a random polygon
+  var a = 0;
+  var i = 0;
+  while (a < 360) {
+    var x = cos(radians(a)) * random(30,50);
+    var y = sin(radians(a)) * random(30,50);
+    randomPoly[i] = createVector(x,y);
+    a += random(15, 40);
+    i += 1;
+  }
+}
+function draw() {
+	background(255);
+	 // update random polygon to mouse position
+  var mouse = createVector(mouseX, mouseY);
+  var diff = mouse.sub(randomPoly[0]);
+
+  for (i=0; i < randomPoly.length; i++) {
+    randomPoly[i].add(diff);
+  }
+
+	beginShape();
+	//draw the polygon from the created Vectors above.
+	for(i=0; i < poly.length; i++){
+		vertex(poly[i].x,poly[i].y);
+	}
+	endShape(CLOSE);
+	beginShape();
+	for(i=0; i < randomPoly.length; i++){
+		vertex(randomPoly[i].x,randomPoly[i].y);
+	}
+	endShape(CLOSE);
+
+	hit = collidePolyPoly(poly,randomPoly,true);
+	print("colliding? " + hit);
+
+}
+
 
 
 
