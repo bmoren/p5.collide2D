@@ -35,7 +35,7 @@ p5.collide is [MIT licensed](LICENSE.txt)
   + [collideLinePoly()](#collidelinepoly)
   + [collidePolyPoly()](#collidepolypoly)
   + [collidePointTriangle()](#collidepointtriangle)
-  + [collide 2Dprimitive Triangle](#collide-2Dprimitive-triangle)
+  + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
 
 ##### 3D Collision Detection
 COMING SOON!
