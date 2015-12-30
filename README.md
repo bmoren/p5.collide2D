@@ -498,11 +498,11 @@ function draw() {
 ```
 
 #### collide 2Dprimitive Triangle
-Use the corresponding primitive shape with a 3 sided polygon as your triangle.
-+ [collideCirclePoly()](#collidecirclepoly)
-+ [collideRectPoly()](#colliderectpoly)
-+ [collideLinePoly()](#collidelinepoly)
-+ [collidePolyPoly()](#collidepolypoly)
+To collide any primitive shape into a triangle, use the corresponding primitive shape with a 3 sided polygon as your triangle. note: you will have to define your triangle using [p5.Vector](http://p5js.org/reference/#/p5/createVector), see example below.
++ [collideCirclePoly()](#collidecirclepoly) circle to triangle collisions
++ [collideRectPoly()](#colliderectpoly) rect to triangle collisions
++ [collideLinePoly()](#collidelinepoly) line to triangle collisions
++ [collidePolyPoly()](#collidepolypoly) triangle to triangle collisions
 
 ```javascript
 var hit = false;
