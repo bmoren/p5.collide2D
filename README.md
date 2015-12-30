@@ -12,7 +12,7 @@ p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
 [Moving on to object oriented collision](http://www.jeffreythompson.org/collision-detection/object_oriented_collision.php)
 
-p5.collide is [MIT licensed](LICENSE.txt)
+p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
 
 ## Table of Contents
 ##### Utility
