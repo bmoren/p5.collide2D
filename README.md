@@ -8,13 +8,13 @@ p5.collide contains some versions of, and references to, the functions in [Jeffr
 [How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
 
 p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
-All p5.collide functions return true if the specified geometry is colliding and false if they are not.
+<br>All p5.collide functions return true if the specified geometry is colliding and false if they are not.
 
-p5.collide is [MIT licensed](../master/LICENSE.txt)
+p5.collide is [MIT licensed](LICENSE.txt)
 
 ## Table of Contents
 ##### Utility
-  + [collideDebug](#collidedebug)
+  + [collideDebug()](#collidedebug)
 
 ##### 2D Collision Detection
   + [collidePointPoint()](#collidepointpoint)
@@ -26,6 +26,7 @@ p5.collide is [MIT licensed](../master/LICENSE.txt)
   + [collidePointLine()](#collidepointline)
   + [collideLineCircle()](#collidelinecircle)
   + [collideLineLine()](#collidelineline)
+  + [collideLineRect()](#collidelinerect)
 
 
 ##### 3D Collision Detection
@@ -40,13 +41,14 @@ COMING SOON!
 
 #### collideDebug()
 ######collideDebug(debugMode)
-Enables collision debug mode. Draws the collision between objects on screen where applicable and calculable:
+Enables collision debug mode. Draws the collision between objects on screen where applicable and calculable.
++ collideDebug() is applicable to the following:
 + [collideLineCircle()](#collidelinecircle)
 + [collideLineLine()](#collidelineline)
 
 ```javascript
 function setup() {
-		collideDebug(true);
+  collideDebug(true);
 }
 ```
 
@@ -203,8 +205,8 @@ function draw(){
 ```
 
 ####collideLineLine()
-######collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4,calcIntersection)
-line to line collision in 2D. Takes an optional boolean parameter which calculates the intersection point. If enabled it will return an object containing the x,y position of the collision intersection. Has a [debug mode](#collidedebug).
+######collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4, calcIntersection)
+line to line collision in 2D. Takes an optional boolean parameter which calculates the intersection point. If enabled it will return an object containing the x,y position of the collision intersection. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
 
 ```javascript
 //basic example
@@ -219,7 +221,7 @@ function draw(){
 }
 ```
 ```javascript
-//Return an object containing the x,y position of the intersection suing the optional calcIntersection boolean
+//Return an object containing the x,y position of the intersection using the optional calcIntersection boolean
 var hit = false;
 function draw(){
   background(255);
@@ -230,6 +232,46 @@ function draw(){
 
   print("X-intersection:" + hit.x);
   print("Y-intersection:" + hit.y);
+}
+```
+
+####collideLineRect()
+######collideLineRect(x1, y1, x2, y2, rx, ry, rw, rh, calcIntersection)
+Line to Rectangle collision in 2d. Takes and optional boolean parameter which calculates the intersection points. If enables it will return an object containing objects of the top,left,bottom,right X,Y intersection positions. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
+
+```javascript
+//basic example
+var hit = false;
+function draw() {
+	background(255);
+	rect(200,300,100,150);
+	line(mouseX,mouseY,350,50);
+
+	hit = collideLineRect(mouseX,mouseY,350,50,200,300,100,150);
+
+	print("colliding? " + hit);
+}
+```
+
+```javascript
+//Return an object containing the x,y position of the bottom intersection of the rect using the optional calcIntersection boolean.
+var hit = false;
+function draw() {
+	background(255);
+	rect(200,300,100,150);
+	line(mouseX,mouseY,350,50);
+
+	hit = collideLineRect(mouseX,mouseY,350,50,200,300,100,150,true);
+
+  //retruned object contains top,right,bottom,left objects which each contain x,y values.
+	print("bottomX: " + hit.bottom.x);
+	print("bottomY: " + hit.bottom.y);
+  print("topX: " + hit.top.x);
+  print("topY: " + hit.top.y);
+  print("leftX: " + hit.left.x);
+  print("leftY: " + hit.left.y);
+  print("rightX: " + hit.right.x);
+  print("rightY: " + hit.right.y);
 }
 ```
 
