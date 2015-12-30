@@ -115,7 +115,7 @@ p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diamete
 
   // draw a debug circle at the closest point on the line
   if(_collideDebug){
-    ellipse(closestX, closestY, 10, 10);
+    ellipse(closestX, closestY,10,10);
   }
 
   // get distance to closest point
@@ -147,7 +147,7 @@ p5.prototype.collideLineLine = function(x1, y1, x2, y2, x3, y3, x4, y4,calcInter
     }
 
     if(_collideDebug){
-      ellipse(intersectionX,intersectionY, 10,10);
+      ellipse(intersectionX,intersectionY,10,10);
     }
 
     if(calcIntersection){
@@ -172,7 +172,7 @@ p5.prototype.collideLineLine = function(x1, y1, x2, y2, x3, y3, x4, y4,calcInter
 
 p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcIntersection) {
 
-  // check if the line has hit any of the rectangle's sides uses the collideLineLine function above
+  // check if the line has hit any of the rectangle's sides. uses the collideLineLine function above
   var left, right, top, bottom, intersection;
 
   if(calcIntersection){
@@ -181,22 +181,10 @@ p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcInte
      top =    collideLineLine(x1,y1,x2,y2, rx,ry, rx+rw,ry,true);
      bottom = collideLineLine(x1,y1,x2,y2, rx,ry+rh, rx+rw,ry+rh,true);
      intersection = {
-        "left" : {
-          "x" : left.x,
-          "y" : left.y
-        },
-        "right" : {
-          "x" : right.x,
-          "y" : right.y
-        },
-        "top" : {
-          "x" : top.x,
-          "y" : top.y
-        },
-        "bottom" : {
-          "x" : bottom.x,
-          "y" : bottom.y
-        }
+        "left" : left,
+        "right" : right,
+        "top" : top,
+        "bottom" : bottom
     }
   }else{
     //return booleans

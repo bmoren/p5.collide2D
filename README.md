@@ -40,15 +40,16 @@ COMING SOON!
 ## p5.collide examples & documentation
 
 #### collideDebug()
-######collideDebug(debugMode)
-Enables collision debug mode. Draws the collision between objects on screen where applicable and calculable.
+######collideDebug(debugMode, size, color)
+Enables collision debug mode. Draws an ellipse at the collision point between objects on screen where applicable and calculable. Takes optional size and color parameters, default is white and 10px.
 + collideDebug() is applicable to the following:
 + [collideLineCircle()](#collidelinecircle)
 + [collideLineLine()](#collidelineline)
++ [collideLineRect()](#collidelinerect)
 
 ```javascript
 function setup() {
-  collideDebug(true);
+  collideDebug(true, 5, "blue");
 }
 ```
 
@@ -264,8 +265,8 @@ function draw() {
 	hit = collideLineRect(mouseX,mouseY,350,50,200,300,100,150,true);
 
   //retruned object contains top,right,bottom,left objects which each contain x,y values.
-	print("bottomX: " + hit.bottom.x);
-	print("bottomY: " + hit.bottom.y);
+  print("bottomX: " + hit.bottom.x);
+  print("bottomY: " + hit.bottom.y);
   print("topX: " + hit.top.x);
   print("topY: " + hit.top.y);
   print("leftX: " + hit.left.x);
