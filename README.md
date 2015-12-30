@@ -27,7 +27,8 @@ p5.collide is [MIT licensed](LICENSE.txt)
   + [collideLineCircle()](#collidelinecircle)
   + [collideLineLine()](#collidelineline)
   + [collideLineRect()](#collidelinerect)
-
+  + [collidePointPoly()](#collidepointpoly)
+  + [collideCirclePoly()](#collidecirclepoly)
 
 ##### 3D Collision Detection
 COMING SOON!
@@ -174,7 +175,7 @@ function draw() {
 ```
 
 ####collidePointLine()
-######collidePointLine(pointX, pointY, x, y, x2, y2, buffer)
+######collidePointLine(pointX, pointY, x, y, x2, y2, [buffer])
 point to line collision in 2D, includes and optional buffer which expands the hit zone on the line (default buffer is 0.1).
 ```javascript
 var hit = false;
@@ -206,7 +207,7 @@ function draw(){
 ```
 
 ####collideLineLine()
-######collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4, calcIntersection)
+######collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4, [calcIntersection])
 line to line collision in 2D. Takes an optional boolean parameter which calculates the intersection point. If enabled it will return an object containing the x,y position of the collision intersection. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
 
 ```javascript
@@ -237,7 +238,7 @@ function draw(){
 ```
 
 ####collideLineRect()
-######collideLineRect(x1, y1, x2, y2, rx, ry, rw, rh, calcIntersection)
+######collideLineRect(x1, y1, x2, y2, rx, ry, rw, rh, [calcIntersection])
 Line to Rectangle collision in 2d. Takes and optional boolean parameter which calculates the intersection points. If enables it will return an object containing objects of the top,left,bottom,right X,Y intersection positions. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
 
 ```javascript
@@ -276,8 +277,8 @@ function draw() {
 }
 ```
 #### collidePointPoly()
-##### collidePointPoly(pointX,pointY,vertexArray)
-Point to Poly Collision in 2D. Takes a point x,y and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions which make up the polygon. This function works with as many sided polygon as you desire, and also "collapsed" polygons where multiple triangles are formed from a single polygon shape overlapping itself.
+##### collidePointPoly(pointX,pointY,vectorArray)
+Point to Poly Collision in 2D. Takes a point x,y and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with as x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself.
 
 ```javascript
 var hit = false;
@@ -308,6 +309,46 @@ function draw() {
 
 }
 ```
+#### collideCirclePoly()
+##### collideCirclePoly(x,y,diameter,vectorArray, [interiorCollision])
+Circle to Poly Collision in 2D. Takes a circle x,y,diameter and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with as x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 5th 'false' boolean parameter which disables the collision detection if the circle is wholly inside the polygon. Has a [debug mode](#collidedebug).
+
+```javascript
+var hit = false;
+var poly = [];
+function setup() {
+	createCanvas(windowWidth,windowHeight);
+	collideDebug(true)
+	poly[0] = createVector(123,231);     // set X/Y position
+	poly[1] = createVector(10,111);
+	poly[2] = createVector(20,23);
+	poly[3] = createVector(390,33);
+	print(poly);
+
+}
+
+function draw() {
+	background(255);
+	beginShape();
+	//draw the polygon from the created Vectors above.
+	for(i=0; i < poly.length; i++){
+		vertex(poly[i].x,poly[i].y);
+	}
+	endShape(CLOSE);
+
+	ellipse(mouseX,mouseY,45,45);
+
+	hit = collideCirclePoly(mouseX,mouseY,45,poly);
+	//disable the hit detection if the circle is wholly inside the polygon
+	// hit = collideCirclePoly(mouseX,mouseY,45,poly,false);
+
+	print("colliding? " + hit);
+
+}
+```
+
+
+
 
 
 

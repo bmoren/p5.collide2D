@@ -209,7 +209,7 @@ p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcInte
   return false;
 }
 
-// POLYGON/POINT
+
 p5.prototype.collidePointPoly = function(px, py, vertices) {
   var collision = false;
 
@@ -232,6 +232,36 @@ p5.prototype.collidePointPoly = function(px, py, vertices) {
     }
   }
   return collision;
+}
+
+// POLYGON/CIRCLE
+p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) {
+
+  // go through each of the vertices, plus the next vertex in the list
+  var next = 0;
+  for (var current=0; current<vertices.length; current++) {
+
+    // get next vertex in list if we've hit the end, wrap around to 0
+    next = current+1;
+    if (next == vertices.length) next = 0;
+
+    // get the PVectors at our current position this makes our if statement a little cleaner
+    var vc = vertices[current];    // c for "current"
+    var vn = vertices[next];       // n for "next"
+
+    // check for collision between the circle and a line formed between the two vertices
+    var collision = collideLineCircle(vc.x,vc.y, vn.x,vn.y, cx,cy,diameter);
+    if (collision) return true;
+  }
+
+  // test if the center of the circle is inside the polygon
+  if(interior != false){
+    var centerInside = collidePointPoly(cx,cy, vertices);
+    if (centerInside) return true;
+  }
+
+  // otherwise, after all that, return false
+  return false;
 }
 
 
