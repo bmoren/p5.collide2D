@@ -41,7 +41,7 @@ COMING SOON!
 
 #### collideDebug()
 ######collideDebug(debugMode, size, color)
-Enables collision debug mode. Draws an ellipse at the collision point between objects on screen where applicable and calculable. Takes optional size and color parameters, default is white and 10px.
+Enables collision debug mode. Draws an ellipse at the collision point between objects on screen where applicable and calculable. 
 + collideDebug() is applicable to the following:
 + [collideLineCircle()](#collidelinecircle)
 + [collideLineLine()](#collidelineline)
@@ -49,7 +49,7 @@ Enables collision debug mode. Draws an ellipse at the collision point between ob
 
 ```javascript
 function setup() {
-  collideDebug(true, 5, "blue");
+  collideDebug(true);
 }
 ```
 
