@@ -278,7 +278,7 @@ function draw() {
 ```
 #### collidePointPoly()
 ##### collidePointPoly(pointX,pointY,vectorArray)
-Point to Poly Collision in 2D. Takes a point x,y and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with as x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself.
+Point to Poly Collision in 2D. Takes a point x,y and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself.
 
 ```javascript
 var hit = false;
@@ -311,7 +311,7 @@ function draw() {
 ```
 #### collideCirclePoly()
 ##### collideCirclePoly(x,y,diameter,vectorArray, [interiorCollision])
-Circle to Poly Collision in 2D. Takes a circle x,y,diameter and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with as x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 5th 'false' boolean parameter which disables the collision detection if the circle is wholly inside the polygon. Has a [debug mode](#collidedebug).
+Circle to Poly Collision in 2D. Takes a circle x,y,diameter and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 5th 'true' boolean parameter which enables the collision detection if the circle is wholly inside the polygon. The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
 
 ```javascript
 var hit = false;
@@ -323,14 +323,13 @@ function setup() {
 	poly[1] = createVector(10,111);
 	poly[2] = createVector(20,23);
 	poly[3] = createVector(390,33);
-	print(poly);
-
 }
 
 function draw() {
 	background(255);
+
+  //draw the polygon from the created Vectors above.
 	beginShape();
-	//draw the polygon from the created Vectors above.
 	for(i=0; i < poly.length; i++){
 		vertex(poly[i].x,poly[i].y);
 	}
@@ -339,8 +338,45 @@ function draw() {
 	ellipse(mouseX,mouseY,45,45);
 
 	hit = collideCirclePoly(mouseX,mouseY,45,poly);
-	//disable the hit detection if the circle is wholly inside the polygon
-	// hit = collideCirclePoly(mouseX,mouseY,45,poly,false);
+	//enable the hit detection if the circle is wholly inside the polygon
+	// hit = collideCirclePoly(mouseX,mouseY,45,poly,true);
+
+	print("colliding? " + hit);
+
+}
+```
+
+#### collideRectPoly()
+##### collideRectPoly(x,y,width,height,vectorArray, [interiorCollision])
+Rect to Poly Collision in 2D. Takes a rect x,y,width,height and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon. This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 6th 'true' boolean parameter which enables the collision detection if the circle is wholly inside the polygon. The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
+
+```javascript
+var hit = false;
+var poly = [];
+function setup() {
+	createCanvas(windowWidth,windowHeight);
+	collideDebug(true)
+	poly[0] = createVector(323,431);     // set X/Y position
+	poly[1] = createVector(210,311);
+	poly[2] = createVector(220,223);
+	poly[3] = createVector(590,233);
+}
+
+function draw() {
+	background(255);
+	push()
+	beginShape();
+	//draw the polygon from the created Vectors above.
+	for(i=0; i < poly.length; i++){
+		vertex(poly[i].x,poly[i].y);
+	}
+	endShape(CLOSE);
+
+	rect(mouseX,mouseY,45,100);
+
+	hit = collideRectPoly(mouseX,mouseY,45,100,poly);
+	//enable the hit detection if the circle is wholly inside the polygon
+	// hit = collideCirclePoly(mouseX,mouseY,45,100,poly,true);
 
 	print("colliding? " + hit);
 

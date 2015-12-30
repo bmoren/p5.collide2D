@@ -237,6 +237,10 @@ p5.prototype.collidePointPoly = function(px, py, vertices) {
 // POLYGON/CIRCLE
 p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) {
 
+  if (interior == undefined){
+    interior == false;
+  }
+
   // go through each of the vertices, plus the next vertex in the list
   var next = 0;
   for (var current=0; current<vertices.length; current++) {
@@ -255,12 +259,47 @@ p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) 
   }
 
   // test if the center of the circle is inside the polygon
-  if(interior != false){
+  if(interior == true){
     var centerInside = collidePointPoly(cx,cy, vertices);
     if (centerInside) return true;
   }
 
   // otherwise, after all that, return false
+  return false;
+}
+
+p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
+  if (interior == undefined){
+    interior == false;
+  }
+
+  // go through each of the vertices, plus the next
+  // vertex in the list
+  var next = 0;
+  for (var current=0; current<vertices.length; current++) {
+
+    // get next vertex in list
+    // if we've hit the end, wrap around to 0
+    next = current+1;
+    if (next == vertices.length) next = 0;
+
+    // get the PVectors at our current position
+    // this makes our if statement a little cleaner
+    var vc = vertices[current];    // c for "current"
+    var vn = vertices[next];       // n for "next"
+
+    // check against all four sides of the rectangle
+    var collision = collideLineRect(vc.x,vc.y,vn.x,vn.y, rx,ry,rw,rh);
+    if (collision) return true;
+
+    // optional: test if the rectangle is INSIDE the polygon
+    // note that this iterates all sides of the polygon again, so only use this if you need to
+    if(interior == true){
+      // var inside = collidePointPoly(rx,ry, vertices);
+      // if (inside) return true;
+    }
+  }
+
   return false;
 }
 
