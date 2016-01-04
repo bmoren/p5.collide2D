@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Basic Usage</title>
+    <title>Randomly placing objects without touching</title>
     <style>
       body{ font-family: sans-serif;
             width:1000px;
@@ -15,12 +15,14 @@
   <body>
 
     <div id="documentation">
-      <h2>Basic Usage</h2>
-      <p> A simple basic usage example!</p>
+      <h2>Randomly placing objects without touching</h2>
+      <p> Uses collideCircleCircle() to detect if the objects are on top of eachother, if so, it tries to get a new location to live. It continually tries until all objects have their own place. If the objects are too big or there are too many, it will continually forever try to place them. You could add in a decay or some other factor to ignore the object if it tries to place it to the screen a number of times and fails... </p>
+
 
       <pre><code class="language-javascript" id="codeLoad">
         loading...
       </code></pre>
+
 
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -41,4 +43,3 @@
 
   </body>
 </html>
-
