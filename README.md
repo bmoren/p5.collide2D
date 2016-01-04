@@ -15,7 +15,7 @@ p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
 
 ## Live examples
-  + [Basic Usage](examples/basic)
+  + [Basic Usage](https://bmoren.github.io/p5.collide/examples/basic/index.html)
   + [Button with a callback](https://bmoren.github.io/p5.collide/examples/basicButton/index.html)
   + [Object oriented collision](https://bmoren.github.io/p5.collide/examples/objectCollision/index.html)
   + [Randomly placing objects without touching](examples/randomPlacement)
