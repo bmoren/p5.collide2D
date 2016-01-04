@@ -19,6 +19,9 @@ p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
   + [Button with a callback](https://bmoren.github.io/p5.collide/examples/basicButton/index.html)
   + [Object oriented collision](https://bmoren.github.io/p5.collide/examples/objectCollision/index.html)
   + [Randomly placing objects without touching](examples/randomPlacement)
+  + [pong](examples/pong)
+  + [swords](examples/swords)
+
 
 ## Table of Contents
 ##### Utility
