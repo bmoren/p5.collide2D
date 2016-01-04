@@ -1,7 +1,7 @@
 /*
 Created by http://benmoren.com
 Some functions and code modified version from http://www.jeffreythompson.org/collision-detection
-MIT License
+GNU LGPL 2.1 License
 */
 
 console.log("### p5.collide ###")
@@ -341,18 +341,15 @@ p5.prototype.collidePolyPoly = function(p1, p2, interior) {
   var next = 0;
   for (var current=0; current<p1.length; current++) {
 
-    // get next vertex in list
-    // if we've hit the end, wrap around to 0
+    // get next vertex in list, if we've hit the end, wrap around to 0
     next = current+1;
     if (next == p1.length) next = 0;
 
-    // get the PVectors at our current position
-    // this makes our if statement a little cleaner
+    // get the PVectors at our current position this makes our if statement a little cleaner
     var vc = p1[current];    // c for "current"
     var vn = p1[next];       // n for "next"
 
-    // now we can use these two points (a line) to compare
-    // to the other polygon's vertices using polyLine()
+    //use these two points (a line) to compare to the other polygon's vertices using polyLine()
     var collision = collideLinePoly(vc.x,vc.y,vn.x,vn.y,p2);
     if (collision) return true;
 

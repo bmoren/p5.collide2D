@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Button Callback Example</title>
+    <style>
+      body{ font-family: sans-serif;
+            width:1000px;
+            margin: 0 auto;
+          }
+      canvas {vertical-align: top; border:1px dotted black;}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" media="screen" charset="utf-8">
+  </head>
+  <body>
+
+    <div id="documentation">
+      <h2>Button Callback Example</h2>
+      <p> Uses collidePointRect() to detect if a user is inside a rect, if inside and clicked, executed the specified callback function.</p>
+
+
+      <pre><code class="language-javascript" id="codeLoad">
+        loading...
+      </code></pre>
+
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <script type="text/javascript">
+
+      $.get('sketch.js', function(data) {
+          // console.log(data);
+          console.log("sketch.js loaded into prismjs");
+          $('#codeLoad').text(data)
+          Prism.highlightAll();
+      });
+    </script>
+    <script src="../p5.js" type="text/javascript"></script>
+    <script src="../../p5.collide.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+
+
+  </body>
+</html>
+
