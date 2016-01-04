@@ -1,5 +1,5 @@
 var circs = [];
-var numCircs = 75;
+var numCircs = 60;
 var cir;
 function setup() {
 	createCanvas(1000,300);
