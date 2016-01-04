@@ -10,8 +10,6 @@ p5.collide contains some versions of, and references to, the functions in [Jeffr
 p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 <br>All p5.collide functions return true if the specified geometry is colliding and false if they are not.
 
-[Moving on to object oriented collision](http://www.jeffreythompson.org/collision-detection/object_oriented_collision.php)
-
 p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
 
 ## Live examples
@@ -54,8 +52,6 @@ COMING SOON!
   + [collideBoxBox()](#collideboxbox)
   + [collideSphereSphere()](#collidespheresphere)
   + [collideBoxSphere()](#collideboxsphere)
-  <!-- + [rayTrace()](#raytrace) -->
-
 
 ## p5.collide examples & documentation
 
