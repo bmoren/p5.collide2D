@@ -111,7 +111,6 @@ function playerObj(color, sz, speed, controls){
 		if(this.hit == false){
 			this.gate = false;
 		}
-
 	}
-
+	
 } // close playerObj

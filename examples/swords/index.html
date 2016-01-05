@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Randomly placing objects without touching</title>
+    <title>Swords Game</title>
     <style>
       body{ font-family: sans-serif;
             width:1000px;
@@ -15,8 +15,8 @@
   <body>
 
     <div id="documentation">
-      <h2>Randomly placing objects without touching</h2>
-      <p> Uses collideCircleCircle() to detect if the objects are on top of eachother, if so, it tries to get a new location to live. It continually tries until all objects have their own place. If the objects are too big or there are too many, it will continually forever try to place them. You could add in a decay or some other factor to ignore the object if it tries to place it to the screen a number of times and fails... </p>
+      <h2>Swords Game</h2>
+      <p> Players control movement with WASD and ILKJ to move on screen, they use E and U to move the swords in a circluar motion around the player. Uses collideLineCircle() to see if the sword hits the enemy and adds a point if they collide. uses collideCircleCircle to verify that the players are not overlapping.  </p>
 
 
       <pre><code class="language-javascript" id="codeLoad">
