@@ -2,8 +2,8 @@
 Created by http://benmoren.com
 Some functions and code modified version from http://www.jeffreythompson.org/collision-detection
 GNU LGPL 2.1 License
+Version 0.1 | January 10th, 2016
 */
-
 console.log("### p5.collide ###")
 
 p5.prototype._collideDebug = false;
@@ -274,18 +274,15 @@ p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
     interior = false;
   }
 
-  // go through each of the vertices, plus the next
-  // vertex in the list
+  // go through each of the vertices, plus the next vertex in the list
   var next = 0;
   for (var current=0; current<vertices.length; current++) {
 
-    // get next vertex in list
-    // if we've hit the end, wrap around to 0
+    // get next vertex in list if we've hit the end, wrap around to 0
     next = current+1;
     if (next == vertices.length) next = 0;
 
-    // get the PVectors at our current position
-    // this makes our if statement a little cleaner
+    // get the PVectors at our current position this makes our if statement a little cleaner
     var vc = vertices[current];    // c for "current"
     var vn = vertices[next];       // n for "next"
 
@@ -293,8 +290,7 @@ p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
     var collision = collideLineRect(vc.x,vc.y,vn.x,vn.y, rx,ry,rw,rh);
     if (collision) return true;
 
-    // optional: test if the rectangle is INSIDE the polygon
-    // note that this iterates all sides of the polygon again, so only use this if you need to
+    // optional: test if the rectangle is INSIDE the polygon note that this iterates all sides of the polygon again, so only use this if you need to
     if(interior == true){
       var inside = collidePointPoly(rx,ry, vertices);
       if (inside) return true;
@@ -310,13 +306,11 @@ p5.prototype.collideLinePoly = function(x1, y1, x2, y2, vertices) {
   var next = 0;
   for (var current=0; current<vertices.length; current++) {
 
-    // get next vertex in list
-    // if we've hit the end, wrap around to 0
+    // get next vertex in list if we've hit the end, wrap around to 0
     next = current+1;
     if (next == vertices.length) next = 0;
 
-    // get the PVectors at our current position
-    // extract X/Y coordinates from each
+    // get the PVectors at our current position extract X/Y coordinates from each
     var x3 = vertices[current].x;
     var y3 = vertices[current].y;
     var x4 = vertices[next].x;

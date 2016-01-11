@@ -44,7 +44,7 @@ p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
 
 ##### 3D Collision Detection
-COMING SOON!
+COMING SOON!, If you can / are interested in helping, please make a pull request. 
   + [collidePointPoint()](#collidepointpoint)
   + [collidePointBox()](#collidepointpoint)
   + [collidePointSphere()](#collidepointpoint)
@@ -74,6 +74,7 @@ function setup() {
 #### collidePointPoint()
 ###### collidePointPoint((x, y, [z], x2, y2[2Dbuffer],[z2], [3Dbuffer])
 Point to point collision in 2d or 3d with an optional buffer zone.
+note: At the moment p5.js does not have a point() function which works with 3d. Coming soon hopefully!
 
 Standard Usage:
 + `collidePointPoint(x,y,x2,y2)` as the most basic collision between two 2D points, no buffer
