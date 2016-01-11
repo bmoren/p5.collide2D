@@ -44,7 +44,12 @@ p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
 
 ##### 3D Collision Detection
-COMING SOON!, If you can / are interested in helping, please make a pull request. 
+
+Refrences:
+http://www.playfuljs.com/a-first-person-engine-in-265-lines/
+http://webmaestro.fr/collisions-detection-three-js-raycasting/
+
+COMING SOON!, If you can / are interested in helping, please make a pull request.
   + [collidePointPoint()](#collidepointpoint)
   + [collidePointBox()](#collidepointpoint)
   + [collidePointSphere()](#collidepointpoint)
