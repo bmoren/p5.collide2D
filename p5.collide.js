@@ -374,45 +374,14 @@ p5.prototype.collidePointTriangle = function(px, py, x1, y1, x2, y2, x3, y3) {
   return false;
 }
 
-/*~++~+~+~++~+~++~++~+~+~ 3D ~+~+~++~+~++~+~+~+~+~+~+~+~+~+~+*/
-
-p5.prototype.collidePointPoint = function (x,y,z,x2,y2,z2, buffer) {
-  //2d or 3d
-
-  if (arguments.length === 4 || arguments.length === 5) {
-    if(y2 == undefined){
-      y2 = 0;
-    }
-    // In the case of 2d: z means x2 , x2 means y2, y2 means buffer
-    if(dist(x,y,z,x2) <= y2){
-      return true;
-    }
-  }else if (arguments.length <= 6){
+p5.prototype.collidePointPoint = function (x,y,x2,y2, buffer) {
     if(buffer == undefined){
       buffer = 0;
     }
-    if( dist(x,y,z,x2,y2,z2) <= buffer){
+    
+    if(dist(x,y,z,x2) <= buffer){
       return true;
     }
-  }
+
   return false;
 };
-
-p5.prototype.collideBoxBox = function (pointX, pointY, x, xW, y, yW) {
-//
-};
-
-p5.prototype.collideSphereSphere = function (pointX, pointY, x, xW, y, yW) {
-//
-};
-
-p5.prototype.collideBoxSphere = function () {
-//
-};
-
-
-
-
-
-
-

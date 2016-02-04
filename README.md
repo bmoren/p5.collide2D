@@ -1,24 +1,23 @@
-# p5.collide
+# p5.collide2D
 ![p5.collide](p5collide.png)
 
-#### A lightweight 2d & 3d collision library for p5.js
-
+#### A lightweight 2d collision library for p5.js
 p5.collide contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
 
 [How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
 
 p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
-<br>All p5.collide functions return true if the specified geometry is colliding and false if they are not.
+
+All p5.collide functions return `true` if the specified geometry is colliding and `false` if they are not.
 
 p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
 
 ## Live examples
-  + [Basic Usage](https://bmoren.github.io/p5.collide/examples/basic/index.html)
-  + [Button with a callback](https://bmoren.github.io/p5.collide/examples/basicButton/index.html)
-  + [Object oriented collision](https://bmoren.github.io/p5.collide/examples/objectCollision/index.html)
-  + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide/examples/randomPlacement/index.html)
-  + [Swords Game](https://bmoren.github.io/p5.collide/examples/swords/index.html)
-
+  + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
+  + [Button with a callback](https://bmoren.github.io/p5.collide2D/examples/basicButton/index.html)
+  + [Object oriented collision](https://bmoren.github.io/p5.collide2D/examples/objectCollision/index.html)
+  + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide2D/examples/randomPlacement/index.html)
+  + [Swords Game](https://bmoren.github.io/p5.collide2D/examples/swords/index.html)
 
 ## Table of Contents
 ##### Utility
@@ -42,20 +41,6 @@ p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
   + [collidePolyPoly()](#collidepolypoly)
   + [collidePointTriangle()](#collidepointtriangle)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
-
-##### 3D Collision Detection
-
-Refrences:
-http://www.playfuljs.com/a-first-person-engine-in-265-lines/
-http://webmaestro.fr/collisions-detection-three-js-raycasting/
-
-COMING SOON!, If you can / are interested in helping, please make a pull request.
-  + [collidePointPoint()](#collidepointpoint)
-  + [collidePointBox()](#collidepointpoint)
-  + [collidePointSphere()](#collidepointpoint)
-  + [collideBoxBox()](#collideboxbox)
-  + [collideSphereSphere()](#collidespheresphere)
-  + [collideBoxSphere()](#collideboxsphere)
 
 ## p5.collide examples & documentation
 
@@ -541,12 +526,3 @@ function draw() {
 	print("colliding? " + hit)
 }
 ```
-
-
-
-
-
-
-
-
-
