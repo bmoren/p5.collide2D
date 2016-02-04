@@ -62,8 +62,8 @@ function setup() {
 }
 ```
 #### collidePointPoint()
-###### collidePointPoint((x, y, x2, y2, [buffer])
-Point to point collision in 2d or 3d with an optional buffer zone.
+###### collidePointPoint(x, y, x2, y2, [buffer])
+Point to point collision with an optional buffer zone.
 ```javascript
 //basic 2D example
 var hit = false;
