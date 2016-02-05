@@ -1,5 +1,5 @@
 # p5.collide2D
-![p5.collide](p5collide.png)
+![p5.collide](p5collide2d.png)
 
 #### A 2d collision detection library for p5.js
 p5.collide2D provides tools for calculating collision detection for 2D geometry with p5.js.<br>
