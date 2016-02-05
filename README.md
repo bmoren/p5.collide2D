@@ -1,16 +1,16 @@
 # p5.collide2D
 ![p5.collide](p5collide.png)
 
-#### A lightweight 2d collision library for p5.js
-p5.collide contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
+#### A 2d collision library for p5.js
+p5.collide2D contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
 
 [How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
 
-p5.collide assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
+p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
-All p5.collide functions return `true` if the specified geometry is colliding and `false` if they are not.
+All p5.collide2D functions return `true` if the specified geometry is colliding and `false` if they are not.
 
-p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
+p5.collide2D is licensed under the [GNU LGPL 2.1](LICENSE.txt)
 
 ## Live examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
@@ -42,7 +42,7 @@ p5.collide  is licensed under the [GNU LGPL 2.1](LICENSE.txt)
   + [collidePointTriangle()](#collidepointtriangle)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
 
-## p5.collide examples & documentation
+## p5.collide2D examples & documentation
 
 #### collideDebug()
 ######collideDebug(debugMode, size, color)
