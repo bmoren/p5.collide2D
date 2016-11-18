@@ -3,7 +3,7 @@
 
 #### A 2d collision detection library for p5.js
 p5.collide2D provides tools for calculating collision detection for 2D geometry with p5.js.<br>
-p5.collide2D contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/)
+p5.collide2D contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/). His code is [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), so, this is too!
 
 [How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
 
@@ -11,7 +11,7 @@ p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
 All p5.collide2D functions return `true` if the specified geometry is colliding and `false` if they are not.
 
-p5.collide2D is licensed under the [GNU LGPL 2.1](LICENSE.txt)
+
 
 ## Live examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
