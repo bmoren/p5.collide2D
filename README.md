@@ -42,6 +42,7 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
   + [collidePolyPoly()](#collidepolypoly)
   + [collidePointTriangle()](#collidepointtriangle)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
+  + [collidePointArc()](#collidepointarc)
 
 ## p5.collide2D examples & documentation
 
@@ -511,5 +512,30 @@ function draw() {
 	hit = collideCirclePoly(mouseX,mouseY,45, triPoly)
 
 	print("colliding? " + hit)
+}
+```
+#### collidePointArc()
+###### collidePointArc(pointX, pointY, arcCenterX, arcCenterY, arcRadius, arcRotationAngle, arcAngle, [buffer])
+Point to Arc collision in 2D.
+```javascript
+var ARC_RADIUS = 100;
+var ARC_ANGLE = Math.PI/3;
+var ROTATION_ANGLE = -Math.PI / 4;
+var hit = false;
+function draw() {
+	background(220);
+	push();
+	// translate to center of canvas
+	translate(width / 2, height / 2);
+	// rotate by some angle
+	rotate(ROTATION_ANGLE);
+	fill(color(180, 220, 210));
+	stroke(10);
+	arc(0, 0, 2 * ARC_RADIUS, 2 * ARC_RADIUS, -ARC_ANGLE/2, ARC_ANGLE/2, PIE);
+	pop();
+	point(mouseX, mouseY);
+	hit = collidePointArc(mouseX, mouseY, width / 2, height / 2, ARC_RADIUS, ROTATION_ANGLE, ARC_ANGLE);
+
+	print("colliding? " + hit);
 }
 ```
