@@ -517,6 +517,8 @@ function draw() {
 #### collidePointArc()
 ###### collidePointArc(pointX, pointY, arcCenterX, arcCenterY, arcRadius, arcRotationAngle, arcAngle, [buffer])
 Point to Arc collision in 2D.
+
+![point arc example image](https://cloud.githubusercontent.com/assets/9556971/25771905/4a299456-325e-11e7-9455-03bd1396c92d.png)
 ```javascript
 var ARC_RADIUS = 100;
 var ARC_ANGLE = Math.PI/3;
