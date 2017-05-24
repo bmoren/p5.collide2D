@@ -46,7 +46,7 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
 ## p5.collide2D examples & documentation
 
 #### collideDebug()
-######collideDebug(debugMode, size, color)
+###### collideDebug(debugMode, size, color)
 Enables collision debug mode. Draws an ellipse at the collision point between objects on screen where applicable and calculable.
 + collideDebug() is applicable to the following:
 + [collideLineCircle()](#collidelinecircle)
@@ -114,8 +114,8 @@ function draw() {
 
 }
 ```
-####collidePointLine()
-######collidePointLine(pointX, pointY, x, y, x2, y2, [buffer])
+#### collidePointLine()
+###### collidePointLine(pointX, pointY, x, y, x2, y2, [buffer])
 point to line collision in 2D, includes and optional buffer which expands the hit zone on the line (default buffer is 0.1).
 ```javascript
 var hit = false;
@@ -182,8 +182,8 @@ function draw() {
 	print("colliding? " + hit);
 }
 ```
-####collideLineLine()
-######collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4, [calcIntersection])
+#### collideLineLine()
+###### collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4, [calcIntersection])
 line to line collision in 2D. Takes an optional boolean parameter which calculates the intersection point. If enabled it will return an object containing the x,y position of the collision intersection. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
 
 ```javascript
@@ -213,8 +213,8 @@ function draw(){
 }
 ```
 
-####collideLineCircle()
-######collideLineCircle(x1,  y1,  x2,  y2,  cx,  cy,  diameter)
+#### collideLineCircle()
+###### collideLineCircle(x1,  y1,  x2,  y2,  cx,  cy,  diameter)
 point to circle collision in 2D. Has a [debug mode](#collidedebug).
 ```javascript
 var hit = false;
@@ -228,8 +228,8 @@ function draw(){
 
 }
 ```
-####collideLineRect()
-######collideLineRect(x1, y1, x2, y2, rx, ry, rw, rh, [calcIntersection])
+#### collideLineRect()
+###### collideLineRect(x1, y1, x2, y2, rx, ry, rw, rh, [calcIntersection])
 Line to Rectangle collision in 2d. Takes and optional boolean parameter which calculates the intersection points. If enables it will return an object containing objects of the top,left,bottom,right X,Y intersection positions. If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
 
 ```javascript
