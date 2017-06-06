@@ -402,7 +402,7 @@ p5.prototype.collidePointArc = function(px, py, ax, ay, arcRadius, arcHeading, a
 
   if (point.dist(arcPos) <= (arcRadius + buffer)) {
     var dot = radius.dot(pointToArc);
-    var angle = p5.Vector.angleBetween(radius, pointToArc);
+    var angle = radius.angleBetween(pointToArc);
     if (dot > 0 && angle <= arcAngle / 2 && angle >= -arcAngle / 2) {
       return true;
     }
