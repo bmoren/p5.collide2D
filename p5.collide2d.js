@@ -105,10 +105,10 @@ p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diamete
   // get length of the line
   var distX = x1 - x2;
   var distY = y1 - y2;
-  var len = this.sqrt( (distX*distX) + (distY*distY) );
+  var lenSquared = (distX*distX) + (distY*distY);
 
   // get dot product of the line and circle
-  var dot = ( ((cx-x1)*(x2-x1)) + ((cy-y1)*(y2-y1)) ) / this.pow(len,2);
+  var dot = ( ((cx-x1)*(x2-x1)) + ((cy-y1)*(y2-y1)) ) / lenSquared;
 
   // find the closest point on the line
   var closestX = x1 + (dot * (x2-x1));
@@ -379,7 +379,7 @@ p5.prototype.collidePointPoint = function (x,y,x2,y2, buffer) {
       buffer = 0;
     }
 
-    if(this.dist(x,y,x2,y2) <= buffer){
+    if(this.abs(x-x2)+this.abs(y-y2) <= buffer**2){
       return true;
     }
 
@@ -400,7 +400,7 @@ p5.prototype.collidePointArc = function(px, py, ax, ay, arcRadius, arcHeading, a
 
   var pointToArc = point.copy().sub(arcPos);
 
-  if (point.dist(arcPos) <= (arcRadius + buffer)) {
+  if (this.abs(px-ax)+this.abs(py-ay) <= (arcRadius + buffer)**2) {
     var dot = radius.dot(pointToArc);
     var angle = radius.angleBetween(pointToArc);
     if (dot > 0 && angle <= arcAngle / 2 && angle >= -arcAngle / 2) {
