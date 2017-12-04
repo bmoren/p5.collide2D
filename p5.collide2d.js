@@ -40,10 +40,10 @@ p5.prototype.collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter) {
   }else if (cy > ry+rh){ testY = ry+rh }   // bottom edge
 
   // // get distance from closest edges
-  var distance = this.dist(cx,cy,testX,testY)
+  var distance = this.abs(cx-testX)+this.abs(cy-testY)
 
   // if the distance is less than the radius, collision!
-  if (distance <= diameter/2) {
+  if (distance <= diameter**2/4) {
     return true;
   }
   return false;
@@ -51,7 +51,7 @@ p5.prototype.collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter) {
 
 p5.prototype.collideCircleCircle = function (x, y,d, x2, y2, d2) {
 //2d
-  if( this.dist(x,y,x2,y2) <= (d/2)+(d2/2) ){
+  if(this.abs(x-x2)+this.abs(y-y2) <= (d/2+d2/2)**2 ){
     return true;
   }
   return false;
@@ -59,7 +59,7 @@ p5.prototype.collideCircleCircle = function (x, y,d, x2, y2, d2) {
 
 p5.prototype.collidePointCircle = function (x, y, cx, cy, d) {
 //2d
-if( this.dist(x,y,cx,cy) <= d/2 ){
+if(this.abs(x-cx)+this.abs(y-cy) <= d*d/4 ){
   return true;
 }
 return false;
@@ -100,7 +100,7 @@ p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diamete
   // if so, return true immediately
   var inside1 = this.collidePointCircle(x1,y1, cx,cy,diameter);
   var inside2 = this.collidePointCircle(x2,y2, cx,cy,diameter);
-  if (inside1 || inside2) return true;
+  return (inside1 || inside2);
 
   // get length of the line
   var distX = x1 - x2;
@@ -127,9 +127,9 @@ p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diamete
   // get distance to closest point
   distX = closestX - cx;
   distY = closestY - cy;
-  var distance = this.sqrt( (distX*distX) + (distY*distY) );
+  var distance = ((distX*distX) + (distY*distY));
 
-  if (distance <= diameter/2) {
+  if (distance <= diameter**2/4) {
     return true;
   }
   return false;
