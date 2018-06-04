@@ -168,7 +168,7 @@ function draw() {
 ```
 
 #### collideRectCircle()
-###### collideRectRect(x, y, width, height, x2, y2, width2, height2 )
+###### collideRectCircle(x1, y1, width1, height1, cx, cy, diameter)
 rect circle collision in 2D. Assumes rectMode(CORNER) && ellipseMode(CENTER);
 
 ```javascript
