@@ -105,10 +105,10 @@ function draw() {
 
 #### collidePointEllipse()
 ###### collidePointEllipse(pointX, pointY, ellipseX, ellipseY, ellipseWidth, ellipseHeight )
-point ellipse collision, it takes the point, the centre of the ellipse, the major and the minor axes (diameters).
+point ellipse collision. It takes the point, the centre of the ellipse, the major and the minor axes (diameters).
 
-![point ellipse collision](https://user-images.githubusercontent.com/13430702/47784680-98543d80-dd06-11e8-8814-47a37186263a.png
-)
+![point ellipse collision](https://user-images.githubusercontent.com/13430702/47784680-98543d80-dd06-11e8-8814-47a37186263a.png)
+
 ```javascript
 let hit = false;
 function draw(){

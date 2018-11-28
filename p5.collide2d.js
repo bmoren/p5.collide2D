@@ -1,8 +1,9 @@
 /*
+Repo: https://github.com/bmoren/p5.collide2D/
 Created by http://benmoren.com
 Some functions and code modified version from http://www.jeffreythompson.org/collision-detection
-GNU LGPL 2.1 License
-Version 0.1 | January 10th, 2016
+Version 0.6 | Nov 28th, 2018
+CC BY-NC-SA 4.0
 */
 console.log("### p5.collide ###")
 
@@ -71,7 +72,7 @@ p5.prototype.collidePointEllipse = function (x, y, cx, cy, dx, dy) {
   // Discarding the points outside the bounding box
   if (x > cx + rx || x < cx - rx ||y > cy + ry || y < cy - ry) {
 		return false;
-  } 
+  }
   // Compare the point to its equivalent on the ellipse
   var xx = x - cx, yy = y - cy;
   var eyy = ry * this.sqrt(this.abs(rx * rx - xx * xx)) / rx;
