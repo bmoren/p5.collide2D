@@ -5,6 +5,8 @@
 p5.collide2D provides tools for calculating collision detection for 2D geometry with p5.js.<br>
 p5.collide2D contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/). His code is [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), so, this is too!
 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+
 [How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
 
 p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
@@ -12,8 +14,7 @@ p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 All p5.collide2D functions return `true` if the specified geometry is colliding and `false` if they are not.
 
 
-
-## Live examples
+## Examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
   + [Button with a callback](https://bmoren.github.io/p5.collide2D/examples/basicButton/index.html)
   + [Object oriented collision](https://bmoren.github.io/p5.collide2D/examples/objectCollision/index.html)
@@ -27,6 +28,7 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
 ##### 2D Collision Detection
   + [collidePointPoint()](#collidepointpoint)
   + [collidePointCircle()](#collidepointcircle)
+  + [collidePointEllipse()](#collidepointellipse)
   + [collidePointRect()](#collidepointrect)
   + [collidePointLine()](#collidepointline)
   + [collideRectRect()](#colliderectrect)
@@ -100,6 +102,26 @@ function draw() {
 
 }
 ```
+
+#### collidePointEllipse()
+###### collidePointEllipse(pointX, pointY, ellipseX, ellipseY, ellipseWidth, ellipseHeight )
+point ellipse collision, it takes the point, the centre of the ellipse, the major and the minor axes (diameters).
+
+![point ellipse collision](https://user-images.githubusercontent.com/13430702/47784680-98543d80-dd06-11e8-8814-47a37186263a.png
+)
+```javascript
+let hit = false;
+function draw(){
+	background(255);
+	ellipse(200,200,50,150);
+	point(mouseX,mouseY);
+
+	hit = collidePointEllipse(mouseX,mouseY,200,200,50,150)
+
+	print("colliding? " + hit);
+}
+```
+
 #### collidePointRect()
 ###### collidePointRect(pointX, pointY, x, y, width, height)
 point to rect collision in 2D. Assumes rectMode(CORNER);
