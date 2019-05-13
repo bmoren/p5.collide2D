@@ -426,7 +426,7 @@ Line to Poly Collision in 2D. Takes a line x,y,x2,y2 and an array of [p5.Vector]
 
 ```javascript
 var hit = false;
-var poly = new Array(16);;
+var poly = new Array(16);
 function setup() {
 	createCanvas(windowWidth,windowHeight);
 	collideDebug(true)
