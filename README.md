@@ -2,12 +2,15 @@
 ![p5.collide](p5collide2d.png)
 
 #### A 2d collision detection library for p5.js
-p5.collide2D provides tools for calculating collision detection for 2D geometry with p5.js.<br>
-p5.collide2D contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/). His code is [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), so, this is too!
+p5.collide2D provides tools for calculating collision detection for 2D geometry with p5.js.
+
+p5.collide2D contains some versions of, and references to, the functions in [Jeffrey Thompson's Collision Detection Book](http://www.jeffreythompson.org/collision-detection/). His code is [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), so, this is too! I highly, highly, reccomend [reading his book](http://www.jeffreythompson.org/collision-detection/) to better understand all of the details involved in collision detection. Reading it will make implementing this library into your code easier and more efficent!
+
+It's an incredible resource for this kind of work! – [http://www.jeffreythompson.org/collision-detection/](http://www.jeffreythompson.org/collision-detection/)
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
 
-[How to Add a library to your p5.js sketch](https://github.com/processing/p5.js/wiki/Libraries#adding-a-library-to-your-project)
+[How to Add a library to your p5.js sketch](https://p5js.org/libraries/)
 
 p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
