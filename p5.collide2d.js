@@ -27,6 +27,15 @@ p5.prototype.collideRectRect = function (x, y, w, h, x2, y2, w2, h2) {
   return false;
 };
 
+// p5.vector version of collideRectRect
+p5.prototype.collideRectRectVector = function(p1, sz, p2, sz2){
+  return p5.prototype.collideRectRect(p1.x, p1.y, sz.x, sz.y, p2.x, p2.y, sz2.x,sz2.y)
+}
+
+// p5.vector version of XXXXXX
+p5.prototype.XXXXXX__Vector = function(XXXXXXXXX){
+  return p5.prototype.XXXXXX(XXXXXX)
+}
 p5.prototype.collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter) {
   //2d
   // temporary variables to set edges for testing
@@ -50,6 +59,11 @@ p5.prototype.collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter) {
   return false;
 };
 
+// p5.vector version of collideRectCircle
+p5.prototype.collideRectCircle = function(r, sz, c, diameter){
+  return p5.prototype.collideRectCircle(r.x,r.y, sz.x,sz.y, c.x,c.y, diameter)
+}
+
 p5.prototype.collideCircleCircle = function (x, y,d, x2, y2, d2) {
 //2d
   if( this.dist(x,y,x2,y2) <= (d/2)+(d2/2) ){
@@ -58,6 +72,13 @@ p5.prototype.collideCircleCircle = function (x, y,d, x2, y2, d2) {
   return false;
 };
 
+
+// p5.vector version of collideCircleCircle
+p5.prototype.collideCircleCircleVector = function(p1,d, p2, d2){
+  return p5.prototype.collideCircleCircle(p1.x,p1.y,  d, p2.x,p2.y, d2)
+}
+
+
 p5.prototype.collidePointCircle = function (x, y, cx, cy, d) {
 //2d
 if( this.dist(x,y,cx,cy) <= d/2 ){
@@ -65,6 +86,11 @@ if( this.dist(x,y,cx,cy) <= d/2 ){
 }
 return false;
 };
+
+// p5.vector version of collidePointCircle
+p5.prototype.collidePointCircleVector = function(p, c, d){
+  return p5.prototype.collidePointCircle(p.x,p.y,c.x,c.y,  d)
+}
 
 p5.prototype.collidePointEllipse = function (x, y, cx, cy, dx, dy) {
   //2d
@@ -79,6 +105,11 @@ p5.prototype.collidePointEllipse = function (x, y, cx, cy, dx, dy) {
   return yy <= eyy && yy >= -eyy;
 };
 
+// p5.vector version of collidePointEllipse
+p5.prototype.collidePointEllipseVector = function(p, c, d){
+  return p5.prototype.collidePointEllipse(p.x,p.y,c.x,c.y,d.x,d.y);
+}
+
 p5.prototype.collidePointRect = function (pointX, pointY, x, y, xW, yW) {
 //2d
 if (pointX >= x &&         // right of the left edge AND
@@ -89,6 +120,8 @@ if (pointX >= x &&         // right of the left edge AND
 }
 return false;
 };
+
+
 
 p5.prototype.collidePointLine = function(px,py,x1,y1,x2,y2, buffer){
   // get distance from the point to the two ends of the line
