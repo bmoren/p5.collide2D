@@ -85,6 +85,11 @@ function draw() {
 	//buffer of 10 px
 	//hit = collidePointPoint(100,100,mouseX,mouseY,10)
 
+	//using p5.Vector's 
+	//let point = createVector(100,100);
+    //let mouse = createVector(mouseX,mouseY);
+    //hit = collidePointPointVector(point,mouse,10)
+
 	print("colliding? " + hit);
 }
 ```
@@ -94,12 +99,21 @@ function draw() {
 point to circle collision in 2D. Assumes ellipseMode(CENTER);
 ```javascript
 var hit = false;
+function setup() {
+	createCanvas(400,400);
+}
 function draw() {
 	background(255);
 	ellipse(200,200,100,100);
 	point(mouseX,mouseY);
 
 	hit = collidePointCircle(mouseX,mouseY,200,200,100)
+
+	// using p5.Vector's 
+	// let mouse = createVector(mouseX,mouseY);
+  	// let circle = createVector(200,200);
+    // let diameter = 100;
+    // hit = collidePointCircleVector(mouse, circle, diameter)
 
 	print("colliding? " + hit);
 
@@ -120,6 +134,12 @@ function draw(){
 	point(mouseX,mouseY);
 
 	hit = collidePointEllipse(mouseX,mouseY,200,200,50,150)
+
+	// using p5.Vector's 
+	// let mouse = createVector(mouseX,mouseY);
+  	// let start_point = createVector(200,200);
+    // let size = createVector(50,150);
+	// hit = collidePointEllipseVector(mouse,start_point,size)
 
 	print("colliding? " + hit);
 }

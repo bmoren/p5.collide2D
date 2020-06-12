@@ -5,6 +5,16 @@ Some functions and code modified version from http://www.jeffreythompson.org/col
 Version 0.6 | Nov 28th, 2018
 CC BY-NC-SA 4.0
 */
+
+// todo 
+// - change p1 to A and p2 to B
+// - add tests (jest)
+// - manual test each example
+// - rewrite examples to use p5.vector format
+
+
+
+
 console.log("### p5.collide ###")
 
 p5.prototype._collideDebug = false;
@@ -32,10 +42,7 @@ p5.prototype.collideRectRectVector = function(p1, sz, p2, sz2){
   return p5.prototype.collideRectRect(p1.x, p1.y, sz.x, sz.y, p2.x, p2.y, sz2.x,sz2.y)
 }
 
-// p5.vector version of XXXXXX
-p5.prototype.XXXXXX__Vector = function(XXXXXXXXX){
-  return p5.prototype.XXXXXX(XXXXXX)
-}
+
 p5.prototype.collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter) {
   //2d
   // temporary variables to set edges for testing
@@ -121,7 +128,10 @@ if (pointX >= x &&         // right of the left edge AND
 return false;
 };
 
-
+// p5.vector version of collidePointRect
+p5.prototype.collidePointRectVector = function(point, p1, sz){
+  return p5.prototype.collidePointRect(point.x, point.y, p1.x, p1.y, sz.x, sz.y);
+}
 
 p5.prototype.collidePointLine = function(px,py,x1,y1,x2,y2, buffer){
   // get distance from the point to the two ends of the line
@@ -140,6 +150,11 @@ if (d1+d2 >= lineLen-buffer && d1+d2 <= lineLen+buffer) {
   return true;
 }
 return false;
+}
+
+// p5.vector version of collidePointLine
+p5.prototype.collidePointLineVector = function(point,p1,p2, buffer){
+  return p5.prototype.collidePointLine(point.x,point.y, p1.x,p1.y, p2.x,p2.y, buffer);
 }
 
 p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diameter) {
@@ -182,6 +197,10 @@ p5.prototype.collideLineCircle = function( x1,  y1,  x2,  y2,  cx,  cy,  diamete
   return false;
 }
 
+// p5.vector version of collideLineCircle
+p5.prototype.collideLineCircleVector = function( p1,  p2,  c,  diameter){
+  return p5.prototype.collideLineCircle( p1.x,  p1.y,  p2.x,  p2.y,  c.x,  c.y,  diameter);
+}
 p5.prototype.collideLineLine = function(x1, y1, x2, y2, x3, y3, x4, y4,calcIntersection) {
 
   var intersection;
@@ -223,6 +242,12 @@ p5.prototype.collideLineLine = function(x1, y1, x2, y2, x3, y3, x4, y4,calcInter
   return false;
 }
 
+
+// p5.vector version of collideLineLine
+p5.prototype.collideLineLineVector = function(p1, p2, p3, p4,calcIntersection){
+  return p5.prototype.collideLineLine(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y,calcIntersection);
+}
+
 p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcIntersection) {
 
   // check if the line has hit any of the rectangle's sides. uses the collideLineLine function above
@@ -257,6 +282,10 @@ p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcInte
   return false;
 }
 
+// p5.vector version of collideLineRect
+p5.prototype.collideLineRectVector = function(p1, p2, r, rsz, calcIntersection){
+  return p5.prototype.collideLineRect(p1.x, p1.y, p2.x, p2.y, r.x, r.y, rsz.w, rsz.h, calcIntersection);
+}
 
 p5.prototype.collidePointPoly = function(px, py, vertices) {
   var collision = false;
@@ -280,6 +309,11 @@ p5.prototype.collidePointPoly = function(px, py, vertices) {
     }
   }
   return collision;
+}
+
+// p5.vector version of collidePointPoly
+p5.prototype.collidePointPolyVector = function(p1, vertices){
+  return p5.prototype.collidePointPoly(p1.x, p1.y, vertices);
 }
 
 // POLYGON/CIRCLE
@@ -316,6 +350,11 @@ p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) 
   return false;
 }
 
+// p5.vector version of collideCirclePoly
+p5.prototype.collideCirclePolyVector = function(c, diameter, vertices, interior){
+  return p5.prototype.collideCirclePoly(c.x, c.y, diameter, vertices, interior);
+}
+
 p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
   if (interior == undefined){
     interior = false;
@@ -347,6 +386,11 @@ p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
   return false;
 }
 
+// p5.vector version of collideRectPoly
+p5.prototype.collideRectPolyVector = function(r, rsz, vertices, interior){
+  return p5.prototype.collideRectPoly(r.x, r.y, rsz.w, rsz.h, vertices, interior);
+}
+
 p5.prototype.collideLinePoly = function(x1, y1, x2, y2, vertices) {
 
   // go through each of the vertices, plus the next vertex in the list
@@ -371,6 +415,12 @@ p5.prototype.collideLinePoly = function(x1, y1, x2, y2, vertices) {
   }
   // never got a hit
   return false;
+}
+
+
+// p5.vector version of collideLinePoly
+p5.prototype.collideLinePolyVector = function(p1, p2, vertice){
+  return p5.prototype.collideLinePoly(p1.x, p1.y, p2.x, p2.y, vertice);
 }
 
 p5.prototype.collidePolyPoly = function(p1, p2, interior) {
@@ -404,6 +454,10 @@ p5.prototype.collidePolyPoly = function(p1, p2, interior) {
   return false;
 }
 
+p5.prototype.collidePolyPolyVector = function(p1, p2, interior) {
+  return p5.prototype.collidePolyPolyVector(p1, p2, interior);
+}
+
 p5.prototype.collidePointTriangle = function(px, py, x1, y1, x2, y2, x3, y3) {
 
   // get the area of the triangle
@@ -421,6 +475,11 @@ p5.prototype.collidePointTriangle = function(px, py, x1, y1, x2, y2, x3, y3) {
   return false;
 }
 
+// p5.vector version of collidePointTriangle
+p5.prototype.collidePointTriangleVector = function(p, p1, p2, p3){
+  return p5.prototype.collidePointTriangle(p.x, p.y, p1.x, p1.y, p2.x, p2.y, p3.x, p3.y);
+}
+
 p5.prototype.collidePointPoint = function (x,y,x2,y2, buffer) {
     if(buffer == undefined){
       buffer = 0;
@@ -432,6 +491,11 @@ p5.prototype.collidePointPoint = function (x,y,x2,y2, buffer) {
 
   return false;
 };
+
+// p5.vector version of collidePointPoint
+p5.prototype.collidePointPointVector = function(p1, p2, buffer){
+  return p5.prototype.collidePointPoint(p1.x,p1.y,p2.x,p2.y, buffer);
+}
 
 p5.prototype.collidePointArc = function(px, py, ax, ay, arcRadius, arcHeading, arcAngle, buffer) {
 
@@ -455,4 +519,9 @@ p5.prototype.collidePointArc = function(px, py, ax, ay, arcRadius, arcHeading, a
     }
   }
   return false;
+}
+
+// p5.vector version of collidePointArc
+p5.prototype.collidePointArcVector = function(p1, a, arcRadius, arcHeading, arcAngle, buffer){
+  return p5.prototype.collidePointArc(p1.x, p1.y, a.x, a.y, arcRadius, arcHeading, arcAngle, buffer);
 }
