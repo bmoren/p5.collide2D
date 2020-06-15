@@ -77,7 +77,7 @@ var hit = false;
 function draw() {
 	background(255);
 	ellipse(100,100,1,1); //change to 10,10px size for buffer example
-	ellipse(mouseX,mouseY,1,1); //change to 10,10px size for buffer example
+	ellipse(mouseX, mouseY, 1,1); //change to 10,10px size for buffer example
 
 	//no buffer zone, most standard example
 	hit = collidePointPoint(100,100,mouseX,mouseY)
@@ -85,11 +85,12 @@ function draw() {
 	//buffer of 10 px
 	//hit = collidePointPoint(100,100,mouseX,mouseY,10)
 
-	//using p5.Vector's 
-	//let point = createVector(100,100);
+	//Using. vectors 
+	//let p1 	= createVector(100,100);
     //let mouse = createVector(mouseX,mouseY);
-    //hit = collidePointPointVector(point,mouse,10)
-
+    //hit = collidePointPointVector(p1,mouse,10)
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -109,12 +110,13 @@ function draw() {
 
 	hit = collidePointCircle(mouseX,mouseY,200,200,100)
 
-	// using p5.Vector's 
-	// let mouse = createVector(mouseX,mouseY);
-  	// let circle = createVector(200,200);
+	// Use vectors as input. 
+	// let mouse 	= createVector(mouseX,mouseY);
+  	// let circle 	= createVector(200,200);
     // let diameter = 100;
     // hit = collidePointCircleVector(mouse, circle, diameter)
-
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
 }
@@ -133,14 +135,15 @@ function draw(){
 	ellipse(200,200,50,150);
 	point(mouseX,mouseY);
 
-	hit = collidePointEllipse(mouseX,mouseY,200,200,50,150)
+	hit = collidePointEllipse(mouseX, mouseY, 200,200,50,150)
 
-	// using p5.Vector's 
-	// let mouse = createVector(mouseX,mouseY);
-  	// let start_point = createVector(200,200);
-    // let size = createVector(50,150);
-	// hit = collidePointEllipseVector(mouse,start_point,size)
-
+	// Use vectors as input. 
+	// let mouse		 = createVector(mouseX,mouseY);
+  	// let ellipse_start = createVector(200,200);
+    // let ellipse_size  = createVector(50,150);
+	// hit = collidePointEllipseVector(mouse, ellipse_start, ellipse_size)
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -156,6 +159,15 @@ function draw() {
 
 	hit = collidePointRect(mouseX,mouseY,200,200,100,150);
 
+
+	// Use vectors as input. 
+  	// let mouse		= createVector(mouseX,mouseY);
+  	// let rect_start 	= createVector(200,200);
+    // let rect_size	= createVector(50,150);
+    
+	// hit = collidePointRectVector(mouse, rect_start, rect_size);
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
 }
@@ -173,6 +185,14 @@ function draw(){
   //collide point line using the optional buffer with a 0.5 value
 	hit = collidePointLine(mouseX,mouseY,200,300,100,150, 0.5);
 
+	// Use vectors as input. 
+	// let mouse 	= createVector(mouseX, mouseY);
+	// let p1 		= createVector(200, 300);
+	// let p2 		= createVector(100, 150);
+	// let buffer 	= 0.5;  
+	// hit = collidePointLineVector(mouse, p1, p2, buffer);
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -200,11 +220,18 @@ function draw() {
 	point(mouseX, mouseY);
 	hit = collidePointArc(mouseX, mouseY, width / 2, height / 2, ARC_RADIUS, ROTATION_ANGLE, ARC_ANGLE);
 
+	// Use vectors as input. 
+	// let mouse 	    = createVector(mouseX, mouseY);
+	// let arcCenter    = createVector(width / 2, height / 2);
+	// let buffer   	= 0.5// optional buffer
+	// hit = collidePointArcVector(mouse, arcCenter, ARC_RADIUS, ROTATION_ANGLE, ARC_ANGLE /*, buffer */);
+		
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
 #### collideCircleCircle()
-###### collideCircleCircle(circleX, circleY,circleDiameter, circleX2, circleY2, circleDiameter2)
+###### collideCircleCircle(circleX, circleY, circleDiameter, circleX2, circleY2, circleDiameter2)
 circle to circle collision in 2D. Assumes ellipseMode(CENTER);
 
 ```javascript
@@ -212,10 +239,16 @@ var hit = false;
 function draw() {
 	background(255);
 	ellipse(200,200,100,100);
-	ellipse(mouseX,mouseY,150,150);
+	ellipse(mouseX, mouseY, 150,150);
 
 	hit = collideCircleCircle(mouseX,mouseY,150,200,200,100)
-
+	
+	// Use vectors as input. 
+  	// let mouse  = createVector(mouseX, mouseY);
+    // let circle = createVector(200,200);
+	// hit = collideCircleCircleVector(mouse, 150, circle, 100)
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
 }
@@ -234,6 +267,14 @@ function draw() {
 
 	hit = collideRectRect(200,200,100,150,mouseX,mouseY,50,75);
 
+	// Use vectors as input.   
+	// let rect_start = createVector(200, 200);
+	// let rect_size  = createVector(100, 150);
+	// let mouse      = createVector(mouseX, mouseY);
+	// let rect2_size = createVector(50, 75);
+	// hit = collideRectRectVector(rect_start, rect_size, mouse, rect2_size);
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
 }
@@ -248,10 +289,18 @@ var hit = false;
 function draw() {
   background(255);
 	rect(200,200,100,150);
-	ellipse(mouseX,mouseY,100,100);
+	ellipse(mouseX, mouseY, 100,100);
 
 	hit = collideRectCircle(200,200,100,150,mouseX,mouseY,100);
 
+	// Use vectors as input.
+	// let mouse      = createVector(mouseX, mouseY);
+	// let rect_start = createVector(200, 200);
+	// let rect_size  = createVector(100, 150);
+	// let radius     = 100;
+	// hit = collideRectCircleVector(rect_start, rect_size, mouse, radius);
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -264,11 +313,20 @@ line to line collision in 2D. Takes an optional boolean parameter which calculat
 var hit = false;
 function draw(){
   background(255);
-  line(200,300,100,150);
-  line(mouseX,mouseY,350,50);
-  hit = collideLineLine(200,300,100,150,mouseX,mouseY,350,50);
+	line(200,300,100,150);
+	line(mouseX,mouseY,350,50);
+	hit = collideLineLine(200,300,100,150,mouseX,mouseY,350,50);
 
-  print("colliding? " + hit);
+	// Use vectors as input.
+	// let p1     = createVector(200, 300);
+	// let p2     = createVector(100, 150);
+	// let mouse  = createVector(mouseX, mouseY);
+	// let p4     = createVector(350, 50);
+	// hit = collideLineLineVector(p1, p2, mouse, p4);
+
+	
+	stroke( (hit) ? color("red") : 0);
+	print("colliding? " + hit);
 }
 ```
 ```javascript
@@ -276,13 +334,21 @@ function draw(){
 var hit = false;
 function draw(){
   background(255);
-  line(200,300,100,150);
-  line(mouseX,mouseY,350,50);
+	line(200,300,100,150);
+	line(mouseX,mouseY,350,50);
 
-  hit = collideLineLine(200,300,100,150,mouseX,mouseY,350,50,true);
+	hit = collideLineLine(200,300,100,150,mouseX,mouseY,350,50,true);
 
-  print("X-intersection:" + hit.x);
-  print("Y-intersection:" + hit.y);
+	// Use vectors as input.
+	// let p1     = createVector(200, 300);
+	// let p2     = createVector(100, 150);
+	// let mouse  = createVector(mouseX, mouseY);
+	// let p4     = createVector(350, 50);
+	// hit = collideLineLineVector(p1, p2, mouse, p4, true);
+
+	stroke( (hit) ? color("red") : 0);
+	print("X-intersection:" + hit.x);
+	print("Y-intersection:" + hit.y);
 }
 ```
 
@@ -294,9 +360,17 @@ var hit = false;
 function draw(){
   background(255);
 	line(200,300,100,150);
-	ellipse(mouseX,mouseY,50,50);
+	ellipse(mouseX, mouseY, 50,50);
 	hit = collideLineCircle(200,300,100,150,mouseX,mouseY,50);
+	
+	// Use vectors as input.
+	// let p1     	= createVector(200, 300);
+	// let p2     	= createVector(100, 150);
+	// let mouse  	= createVector(mouseX, mouseY);
+	// let diameter = 50;
+	// hit = collideLineCircleVector(p1, p2, mouse, diameter);
 
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
 }
@@ -315,6 +389,14 @@ function draw() {
 
 	hit = collideLineRect(mouseX,mouseY,350,50,200,300,100,150);
 
+	// Use vectors as input.
+	// let mouse 	  = createVector(mouseX, mouseY);
+	// let p2 		  = createVector(350, 50);
+	// let rect_start = createVector(200, 300);
+	// let rect_size  = createVector(100, 150);
+	// hit = collideLineRectVector(mouse, p2, rect_start, rect_size);
+
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -329,15 +411,26 @@ function draw() {
 
 	hit = collideLineRect(mouseX,mouseY,350,50,200,300,100,150,true);
 
-  //retruned object contains top,right,bottom,left objects which each contain x,y values.
-  print("bottomX: " + hit.bottom.x);
-  print("bottomY: " + hit.bottom.y);
-  print("topX: " + hit.top.x);
-  print("topY: " + hit.top.y);
-  print("leftX: " + hit.left.x);
-  print("leftY: " + hit.left.y);
-  print("rightX: " + hit.right.x);
-  print("rightY: " + hit.right.y);
+	// Use vectors as input.
+	// let mouse 		= createVector(mouseX, mouseY);
+	// let p2 			= createVector(350, 50);
+	// let rect_start 	= createVector(200, 300);
+	// let rect_size 	= createVector(100, 150);
+	// hit = collideLineRectVector(mouse, p2, rect_start, rect_size, true);
+
+	//because hit returns a object with .bottom, .top, .left and .right having to check 
+	//if any has hit the rectangle 
+	stroke( (hit.bottom.x  || hit.bottom.y || hit.top.x || hit.top.y || hit.left.x || hit.left.y || hit.right.x || hit.right.y) ? color("red") : 0);
+	  
+	//returned object contains top,right,bottom,left objects which each contain x,y values.
+	print("bottomX: " + hit.bottom.x);
+	print("bottomY: " + hit.bottom.y);
+	print("topX: " + hit.top.x);
+	print("topY: " + hit.top.y);
+	print("leftX: " + hit.left.x);
+	print("leftY: " + hit.left.y);
+	print("rightX: " + hit.right.x);
+	print("rightY: " + hit.right.y);
 }
 ```
 #### collidePointPoly()
@@ -365,10 +458,15 @@ function draw() {
 	}
 	endShape(CLOSE);
 
-	ellipse(mouseX,mouseY,10,10); //put a small ellipse on our point.
+	ellipse(mouseX, mouseY, 10, 10); //put a small ellipse on our point.
 
-	hit = collidePointPoly(mouseX,mouseY,poly); //3rd parameter is an array of vertices.
-
+	hit = collidePointPoly(mouseX, mouseY, poly); //3rd parameter is an array of vertices.
+	
+	// Use vectors as input.
+	// let mouse = createVector(mouseX, mouseY);
+	// hit = collidePointPolyVector(mouse, poly);
+	
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -398,12 +496,21 @@ function draw() {
 	}
 	endShape(CLOSE);
 
-	ellipse(mouseX,mouseY,45,45);
+	ellipse(mouseX, mouseY, 45, 45);
 
-	hit = collideCirclePoly(mouseX,mouseY,45,poly);
+	hit = collideCirclePoly(mouseX, mouseY, 45, poly);
 	//enable the hit detection if the circle is wholly inside the polygon
-	// hit = collideCirclePoly(mouseX,mouseY,45,poly,true);
+	// hit = collideCirclePoly(mouseX, mouseY, 45, poly, true);
+	
 
+	// Use vectors as input.
+	// let mouse = createVector(mouseX, mouseY);
+	// hit = collideCirclePolyVector(mouse, 45, poly);
+	// or
+	// hit = collideCirclePolyVector(mouseX, mouseY, 45, poly, true);
+
+
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -437,9 +544,17 @@ function draw() {
 	rect(mouseX,mouseY,45,100);
 
 	hit = collideRectPoly(mouseX,mouseY,45,100,poly);
-	//enable the hit detection if the circle is wholly inside the polygon
-	// hit = collideRectPoly(mouseX,mouseY,45,100,poly,true);
+	// enable the hit detection if the Rectangle is wholly inside the polygon
+	// hit = collideRectPoly(mouseX, mouseY, 45, 100, poly, true);
+	
+	// Use vectors as input.
+	// let mouse     = createVector(mouseX, mouseY);
+	// let rect_size = createVector(45, 100);
+	// hit = collideRectPolyVector(mouse, rect_size, poly);
+	// or
+	// hit = collideRectPolyVector(mouse, rect_size, poly, true);
 
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -476,6 +591,12 @@ function draw() {
 
 	hit = collideLinePoly(mouseX,mouseY,45,100,poly);
 
+	// Use vectors as input.
+	// let mouse = createVector(mouseX, mouseY);
+	// let p2    = createVector(45, 100);
+	// hit = collideLinePolyVector(mouse, p2, poly);
+
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
 ```
@@ -534,7 +655,14 @@ function draw() {
 	}
 	endShape(CLOSE);
 
+		
 	hit = collidePolyPoly(poly,randomPoly,true);
+
+	// Vector version does the same thing, here for completeness
+	// hit = collidePolyPolyVector(poly, randomPoly, true);
+
+
+	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
 }
@@ -547,15 +675,26 @@ Point to Triangle collision in 2D. You could use [collidePointPoly()](#collidepo
 var hit = false;
 function draw() {
 	background(255);
-	triangle(300,200,350,300,250,300)
-	ellipse(mouseX,mouseY,10,10);
+	triangle(300, 200, 350, 300, 250, 300);
+	ellipse(mouseX, mouseY, 10,10);
 
-	hit = collidePointTriangle(mouseX,mouseY, 300,200,350,300,250,300)
-	print("colliding? " + hit)
+	hit = collidePointTriangle(mouseX,mouseY, 300,200,350,300,250,300);
+
+	// Use vectors as input.
+	// let mouse	= createVector(mouseX, mouseY);
+	// let p1 		= createVector(300, 200);
+	// let p2 		= createVector(350, 300);
+	// let p3 		= createVector(250, 300);
+	// hit = collidePointTriangleVector(mouse, p1, p2, p3);
+
+	stroke((hit) ? color("red") : 0);
+	print("colliding? " + hit);
 }
 ```
 
-#### collide 2Dprimitive Triangle
+#### collideCirclePoly()
+###### collideCirclePoly(cx, cy, diameter, vertices, interior)
+###### collide 2D primitive Triangle
 To collide any primitive shape into a triangle, use the corresponding primitive shape with a 3 sided polygon as your triangle. note: you will have to define your triangle using [p5.Vector](http://p5js.org/reference/#/p5/createVector), see example below.
 + [collideCirclePoly()](#collidecirclepoly) circle to triangle collisions
 + [collideRectPoly()](#colliderectpoly) rect to triangle collisions
@@ -577,12 +716,38 @@ function setup() {
 function draw() {
 	background(255);
 
-  //we could for loop over the tyiPoly array to draw it with a begin/endShape, but this is easier :)
-	triangle(300,200,350,300,250,300)
-	ellipse(mouseX,mouseY,45,45);
+  //we could for loop over the tyiPoly array to draw it with a begin/endShape, but this is simpler :)
+	triangle(300, 200, 350, 300, 250, 300);
+	//or
+	// triangle(triPoly[0].x, triPoly[0].y, triPoly[1].x, triPoly[1].y, triPoly[2].x, triPoly[2].y);
+	ellipse(mouseX, mouseY, 45, 45);
 
-	hit = collideCirclePoly(mouseX,mouseY,45, triPoly)
+	hit = collideCirclePoly(mouseX, mouseY, 45, triPoly);
 
+	// Use vectors as input.
+	// let mouse    = createVector(mouseX, mouseY);
+	// let diameter = 45;
+	// hit = collideCirclePolyVector(mouse, diameter, triPoly, true);
+
+
+	stroke((hit) ? color("red") : 0);
 	print("colliding? " + hit)
 }
 ```
+
+
+
+# Package Development
+#### how to minify code for distrobution
+```
+npm install -D
+npm run build
+```
+- bump version number in header-comment.txt
+- prepped to p5.collid2d.min.js 
+
+- then commit p5.collid2d.min.js
+
+
+# Todo Improvements
+- add tests (jest)

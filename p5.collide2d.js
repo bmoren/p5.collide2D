@@ -2,17 +2,9 @@
 Repo: https://github.com/bmoren/p5.collide2D/
 Created by http://benmoren.com
 Some functions and code modified version from http://www.jeffreythompson.org/collision-detection
-Version 0.6 | Nov 28th, 2018
+Version 0.7 | Nov 28th, 2018
 CC BY-NC-SA 4.0
 */
-
-// todo 
-// - change p1 to A and p2 to B
-// - add tests (jest)
-// - manual test each example
-// - rewrite examples to use p5.vector format
-
-
 
 
 console.log("### p5.collide ###")
@@ -67,7 +59,7 @@ p5.prototype.collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter) {
 };
 
 // p5.vector version of collideRectCircle
-p5.prototype.collideRectCircle = function(r, sz, c, diameter){
+p5.prototype.collideRectCircleVector = function(r, sz, c, diameter){
   return p5.prototype.collideRectCircle(r.x,r.y, sz.x,sz.y, c.x,c.y, diameter)
 }
 
@@ -244,8 +236,8 @@ p5.prototype.collideLineLine = function(x1, y1, x2, y2, x3, y3, x4, y4,calcInter
 
 
 // p5.vector version of collideLineLine
-p5.prototype.collideLineLineVector = function(p1, p2, p3, p4,calcIntersection){
-  return p5.prototype.collideLineLine(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y,calcIntersection);
+p5.prototype.collideLineLineVector = function(p1, p2, p3, p4, calcIntersection){
+  return p5.prototype.collideLineLine(p1.x, p1.y, p2.x, p2.y, p3.x, p3.y, p4.x, p4.y, calcIntersection);
 }
 
 p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcIntersection) {
@@ -284,7 +276,7 @@ p5.prototype.collideLineRect = function(x1, y1, x2, y2, rx, ry, rw, rh, calcInte
 
 // p5.vector version of collideLineRect
 p5.prototype.collideLineRectVector = function(p1, p2, r, rsz, calcIntersection){
-  return p5.prototype.collideLineRect(p1.x, p1.y, p2.x, p2.y, r.x, r.y, rsz.w, rsz.h, calcIntersection);
+  return p5.prototype.collideLineRect(p1.x, p1.y, p2.x, p2.y, r.x, r.y, rsz.x, rsz.y, calcIntersection);
 }
 
 p5.prototype.collidePointPoly = function(px, py, vertices) {
@@ -296,7 +288,7 @@ p5.prototype.collidePointPoly = function(px, py, vertices) {
 
     // get next vertex in list if we've hit the end, wrap around to 0
     next = current+1;
-    if (next == vertices.length) next = 0;
+    if (next === vertices.length) next = 0;
 
     // get the PVectors at our current position this makes our if statement a little cleaner
     var vc = vertices[current];    // c for "current"
@@ -319,7 +311,7 @@ p5.prototype.collidePointPolyVector = function(p1, vertices){
 // POLYGON/CIRCLE
 p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) {
 
-  if (interior == undefined){
+  if (interior === undefined){
     interior = false;
   }
 
@@ -329,7 +321,7 @@ p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) 
 
     // get next vertex in list if we've hit the end, wrap around to 0
     next = current+1;
-    if (next == vertices.length) next = 0;
+    if (next === vertices.length) next = 0;
 
     // get the PVectors at our current position this makes our if statement a little cleaner
     var vc = vertices[current];    // c for "current"
@@ -341,7 +333,7 @@ p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) 
   }
 
   // test if the center of the circle is inside the polygon
-  if(interior == true){
+  if(interior === true){
     var centerInside = this.collidePointPoly(cx,cy, vertices);
     if (centerInside) return true;
   }
@@ -366,7 +358,7 @@ p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
 
     // get next vertex in list if we've hit the end, wrap around to 0
     next = current+1;
-    if (next == vertices.length) next = 0;
+    if (next === vertices.length) next = 0;
 
     // get the PVectors at our current position this makes our if statement a little cleaner
     var vc = vertices[current];    // c for "current"
@@ -377,7 +369,7 @@ p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
     if (collision) return true;
 
     // optional: test if the rectangle is INSIDE the polygon note that this iterates all sides of the polygon again, so only use this if you need to
-    if(interior == true){
+    if(interior === true){
       var inside = this.collidePointPoly(rx,ry, vertices);
       if (inside) return true;
     }
@@ -388,7 +380,7 @@ p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
 
 // p5.vector version of collideRectPoly
 p5.prototype.collideRectPolyVector = function(r, rsz, vertices, interior){
-  return p5.prototype.collideRectPoly(r.x, r.y, rsz.w, rsz.h, vertices, interior);
+  return p5.prototype.collideRectPoly(r.x, r.y, rsz.x, rsz.y, vertices, interior);
 }
 
 p5.prototype.collideLinePoly = function(x1, y1, x2, y2, vertices) {
@@ -399,7 +391,7 @@ p5.prototype.collideLinePoly = function(x1, y1, x2, y2, vertices) {
 
     // get next vertex in list if we've hit the end, wrap around to 0
     next = current+1;
-    if (next == vertices.length) next = 0;
+    if (next === vertices.length) next = 0;
 
     // get the PVectors at our current position extract X/Y coordinates from each
     var x3 = vertices[current].x;
@@ -424,7 +416,7 @@ p5.prototype.collideLinePolyVector = function(p1, p2, vertice){
 }
 
 p5.prototype.collidePolyPoly = function(p1, p2, interior) {
-  if (interior == undefined){
+  if (interior === undefined){
     interior = false;
   }
 
@@ -434,7 +426,7 @@ p5.prototype.collidePolyPoly = function(p1, p2, interior) {
 
     // get next vertex in list, if we've hit the end, wrap around to 0
     next = current+1;
-    if (next == p1.length) next = 0;
+    if (next === p1.length) next = 0;
 
     // get the PVectors at our current position this makes our if statement a little cleaner
     var vc = p1[current];    // c for "current"
@@ -445,7 +437,7 @@ p5.prototype.collidePolyPoly = function(p1, p2, interior) {
     if (collision) return true;
 
     //check if the 2nd polygon is INSIDE the first
-    if(interior == true){
+    if(interior === true){
       collision = this.collidePointPoly(p2[0].x, p2[0].y, p1);
       if (collision) return true;
     }
@@ -455,7 +447,7 @@ p5.prototype.collidePolyPoly = function(p1, p2, interior) {
 }
 
 p5.prototype.collidePolyPolyVector = function(p1, p2, interior) {
-  return p5.prototype.collidePolyPolyVector(p1, p2, interior);
+  return p5.prototype.collidePolyPoly(p1, p2, interior);
 }
 
 p5.prototype.collidePointTriangle = function(px, py, x1, y1, x2, y2, x3, y3) {
@@ -469,7 +461,7 @@ p5.prototype.collidePointTriangle = function(px, py, x1, y1, x2, y2, x3, y3) {
   var area3 =    this.abs( (x3-px)*(y1-py) - (x1-px)*(y3-py) );
 
   // if the sum of the three areas equals the original, we're inside the triangle!
-  if (area1 + area2 + area3 == areaOrig) {
+  if (area1 + area2 + area3 === areaOrig) {
     return true;
   }
   return false;
@@ -481,7 +473,7 @@ p5.prototype.collidePointTriangleVector = function(p, p1, p2, p3){
 }
 
 p5.prototype.collidePointPoint = function (x,y,x2,y2, buffer) {
-    if(buffer == undefined){
+    if(buffer === undefined){
       buffer = 0;
     }
 
@@ -499,7 +491,7 @@ p5.prototype.collidePointPointVector = function(p1, p2, buffer){
 
 p5.prototype.collidePointArc = function(px, py, ax, ay, arcRadius, arcHeading, arcAngle, buffer) {
 
-  if (buffer == undefined) {
+  if (buffer === undefined) {
     buffer = 0;
   }
   // point
