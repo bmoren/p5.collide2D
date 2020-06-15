@@ -79,16 +79,16 @@ function draw() {
 	ellipse(100,100,1,1); //change to 10,10px size for buffer example
 	ellipse(mouseX, mouseY, 1,1); //change to 10,10px size for buffer example
 
-	//no buffer zone, most standard example
+	// no buffer zone, most standard example
 	hit = collidePointPoint(100,100,mouseX,mouseY)
 
-	//buffer of 10 px
-	//hit = collidePointPoint(100,100,mouseX,mouseY,10)
+	// buffer of 10 px
+	// hit = collidePointPoint(100,100,mouseX,mouseY,10)
 
-	//Using. vectors 
-	//let p1 	= createVector(100,100);
-    //let mouse = createVector(mouseX,mouseY);
-    //hit = collidePointPointVector(p1,mouse,10)
+	// Use vectors as input. 
+	// let p1 	= createVector(100,100);
+    // let mouse = createVector(mouseX,mouseY);
+    // hit = collidePointPointVector(p1,mouse,10)
 	
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
@@ -161,7 +161,7 @@ function draw() {
 
 
 	// Use vectors as input. 
-  	// let mouse		= createVector(mouseX,mouseY);
+  	// let mouse        = createVector(mouseX,mouseY);
   	// let rect_start 	= createVector(200,200);
     // let rect_size	= createVector(50,150);
     
@@ -187,8 +187,8 @@ function draw(){
 
 	// Use vectors as input. 
 	// let mouse 	= createVector(mouseX, mouseY);
-	// let p1 		= createVector(200, 300);
-	// let p2 		= createVector(100, 150);
+	// let p1       = createVector(200, 300);
+	// let p2       = createVector(100, 150);
 	// let buffer 	= 0.5;  
 	// hit = collidePointLineVector(mouse, p1, p2, buffer);
 	
@@ -412,8 +412,8 @@ function draw() {
 	hit = collideLineRect(mouseX,mouseY,350,50,200,300,100,150,true);
 
 	// Use vectors as input.
-	// let mouse 		= createVector(mouseX, mouseY);
-	// let p2 			= createVector(350, 50);
+	// let mouse       = createVector(mouseX, mouseY);
+	// let p2 	      = createVector(350, 50);
 	// let rect_start 	= createVector(200, 300);
 	// let rect_size 	= createVector(100, 150);
 	// hit = collideLineRectVector(mouse, p2, rect_start, rect_size, true);
@@ -682,9 +682,9 @@ function draw() {
 
 	// Use vectors as input.
 	// let mouse	= createVector(mouseX, mouseY);
-	// let p1 		= createVector(300, 200);
-	// let p2 		= createVector(350, 300);
-	// let p3 		= createVector(250, 300);
+	// let p1       = createVector(300, 200);
+	// let p2       = createVector(350, 300);
+	// let p3       = createVector(250, 300);
 	// hit = collidePointTriangleVector(mouse, p1, p2, p3);
 
 	stroke((hit) ? color("red") : 0);

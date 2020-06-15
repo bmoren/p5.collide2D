@@ -5,7 +5,7 @@
   "main": "p5.collide2d.js",
   "dependencies": {},
   "devDependencies": {
-    "minify": "^5.1.1",
+    "minify": "^5.1.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
