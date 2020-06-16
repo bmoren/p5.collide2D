@@ -1,0 +1,23 @@
+{
+  "name": "p5.collide2D",
+  "version": "1.0.0",
+  "description": "A collision detection library for 2D geometry in p5.js",
+  "main": "p5.collide2d.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bmoren/p5.collide2D.git"
+  },
+  "keywords": [
+    "p5",
+    "collision"
+  ],
+  "author": "Ben Moren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bmoren/p5.collide2D/issues"
+  },
+  "homepage": "https://github.com/bmoren/p5.collide2D#readme"
+}
