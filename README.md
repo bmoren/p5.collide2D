@@ -16,13 +16,22 @@ p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
 All p5.collide2D functions return `true` if the specified geometry is colliding and `false` if they are not.
 
-
 ## Examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
   + [Button with a callback](https://bmoren.github.io/p5.collide2D/examples/basicButton/index.html)
   + [Object oriented collision](https://bmoren.github.io/p5.collide2D/examples/objectCollision/index.html)
   + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide2D/examples/randomPlacement/index.html)
   + [Swords Game](https://bmoren.github.io/p5.collide2D/examples/swords/index.html)
+  
+## using this library with vectors
+As of June 2020, this library now supports vector version of all functions. Simply use the function names below with `Vector` added onto the function name to utilize the vector version of the function. The function's arguments take in vectors instead of x/y values. Each of the examples below now has a commented example to demonstrate vector usage. We will be updating the documentation and examples in the future to make this distinction more clear. This in no way affects the original functionality of the library.
+
+```javascript
+	//Use vectors as input
+	let p1 	= createVector(100,100);
+    	let mouse = createVector(mouseX,mouseY);
+    	hit = collidePointPointVector(p1,mouse,10)
+```
 
 ## Table of Contents
 ##### Utility
@@ -48,7 +57,7 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
   + [collidePolyPoly()](#collidepolypoly)
   + [collidePointTriangle()](#collidepointtriangle)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
-
+  
 ## p5.collide2D examples & documentation
 
 #### collideDebug()
@@ -87,8 +96,8 @@ function draw() {
 
 	// Use vectors as input. 
 	// let p1 	= createVector(100,100);
-    // let mouse = createVector(mouseX,mouseY);
-    // hit = collidePointPointVector(p1,mouse,10)
+    	// let mouse = createVector(mouseX,mouseY);
+    	// hit = collidePointPointVector(p1,mouse,10)
 	
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
@@ -113,8 +122,8 @@ function draw() {
 	// Use vectors as input. 
 	// let mouse 	= createVector(mouseX,mouseY);
   	// let circle 	= createVector(200,200);
-    // let diameter = 100;
-    // hit = collidePointCircleVector(mouse, circle, diameter)
+    	// let diameter = 100;
+    	// hit = collidePointCircleVector(mouse, circle, diameter)
 	
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
@@ -140,7 +149,7 @@ function draw(){
 	// Use vectors as input. 
 	// let mouse		 = createVector(mouseX,mouseY);
   	// let ellipse_start = createVector(200,200);
-    // let ellipse_size  = createVector(50,150);
+    	// let ellipse_size  = createVector(50,150);
 	// hit = collidePointEllipseVector(mouse, ellipse_start, ellipse_size)
 	
 	stroke( (hit) ? color("red") : 0);
@@ -163,8 +172,7 @@ function draw() {
 	// Use vectors as input. 
   	// let mouse        = createVector(mouseX,mouseY);
   	// let rect_start 	= createVector(200,200);
-    // let rect_size	= createVector(50,150);
-    
+    	// let rect_size	= createVector(50,150);
 	// hit = collidePointRectVector(mouse, rect_start, rect_size);
 	
 	stroke( (hit) ? color("red") : 0);
@@ -245,7 +253,7 @@ function draw() {
 	
 	// Use vectors as input. 
   	// let mouse  = createVector(mouseX, mouseY);
-    // let circle = createVector(200,200);
+    	// let circle = createVector(200,200);
 	// hit = collideCircleCircleVector(mouse, 150, circle, 100)
 	
 	stroke( (hit) ? color("red") : 0);
@@ -736,18 +744,9 @@ function draw() {
 ```
 
 
-
 # Package Development
-#### how to minify code for distrobution
+#### how to minify code for distribution
 ```
 npm install -D
 npm run build
 ```
-- bump version number in header-comment.txt
-- prepped to p5.collid2d.min.js 
-
-- then commit p5.collid2d.min.js
-
-
-# Todo Improvements
-- add tests (jest)
