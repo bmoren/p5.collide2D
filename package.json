@@ -1,21 +1,28 @@
 {
-  "name": "p5.collide2D",
-  "version": "1.0.0",
+  "name": "p5.collide2d",
+  "version": "0.7.0",
   "description": "A collision detection library for 2D geometry in p5.js",
   "main": "p5.collide2d.js",
+  "dependencies": {},
+  "devDependencies": {
+    "minify": "^5.1.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/minify  p5.collide2d.js > p5.collide2d.min.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bmoren/p5.collide2D.git"
   },
   "keywords": [
-    "p5",
-    "collision"
+    "collision",
+    "p5.js",
+    "2D",
+    "geometry"
   ],
-  "author": "Ben Moren",
-  "license": "MIT",
+  "author": "bmoren",
+  "license": "CC-BY-NC-SA-4.0",
   "bugs": {
     "url": "https://github.com/bmoren/p5.collide2D/issues"
   },
