@@ -23,14 +23,14 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
   + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide2D/examples/randomPlacement/index.html)
   + [Swords Game](https://bmoren.github.io/p5.collide2D/examples/swords/index.html)
   
-## using this library with vectors
+## Using this library with vectors
 As of June 2020, this library now supports vector version of all functions. Simply use the function names below with `Vector` added onto the function name to utilize the vector version of the function. The function's arguments take in vectors instead of x/y values. Each of the examples below now has a commented example to demonstrate vector usage. We will be updating the documentation and examples in the future to make this distinction more clear. This in no way affects the original functionality of the library.
 
 ```javascript
-	//Use vectors as input
-	let p1 	= createVector(100,100);
-    	let mouse = createVector(mouseX,mouseY);
-    	hit = collidePointPointVector(p1,mouse,10)
+//Use vectors as input
+let p1 	= createVector(100,100);
+let mouse = createVector(mouseX,mouseY);
+hit = collidePointPointVector(p1,mouse,10)
 ```
 
 ## Table of Contents
