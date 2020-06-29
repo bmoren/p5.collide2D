@@ -16,13 +16,17 @@ p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
 All p5.collide2D functions return `true` if the specified geometry is colliding and `false` if they are not.
 
+## CDN links
+https://cdn.jsdelivr.net/npm/p5.collide2d
+https://unpkg.com/p5.collide2d
+
 ## Examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
   + [Button with a callback](https://bmoren.github.io/p5.collide2D/examples/basicButton/index.html)
   + [Object oriented collision](https://bmoren.github.io/p5.collide2D/examples/objectCollision/index.html)
   + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide2D/examples/randomPlacement/index.html)
   + [Swords Game](https://bmoren.github.io/p5.collide2D/examples/swords/index.html)
-  
+
 ## Using this library with vectors
 As of June 2020, this library now supports vector version of all functions. Simply use the function names below with `Vector` added onto the function name to utilize the vector version of the function. The function's arguments take in vectors instead of x/y values. Each of the examples below now has a commented example to demonstrate vector usage. We will be updating the documentation and examples in the future to make this distinction more clear. This in no way affects the original functionality of the library.
 
@@ -57,7 +61,7 @@ hit = collidePointPointVector(p1,mouse,10)
   + [collidePolyPoly()](#collidepolypoly)
   + [collidePointTriangle()](#collidepointtriangle)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
-  
+
 ## p5.collide2D examples & documentation
 
 #### collideDebug()
@@ -94,11 +98,11 @@ function draw() {
 	// buffer of 10 px
 	// hit = collidePointPoint(100,100,mouseX,mouseY,10)
 
-	// Use vectors as input. 
+	// Use vectors as input.
 	// let p1 	= createVector(100,100);
     	// let mouse = createVector(mouseX,mouseY);
     	// hit = collidePointPointVector(p1,mouse,10)
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
@@ -119,12 +123,12 @@ function draw() {
 
 	hit = collidePointCircle(mouseX,mouseY,200,200,100)
 
-	// Use vectors as input. 
+	// Use vectors as input.
 	// let mouse 	= createVector(mouseX,mouseY);
   	// let circle 	= createVector(200,200);
     	// let diameter = 100;
     	// hit = collidePointCircleVector(mouse, circle, diameter)
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
@@ -146,12 +150,12 @@ function draw(){
 
 	hit = collidePointEllipse(mouseX, mouseY, 200,200,50,150)
 
-	// Use vectors as input. 
+	// Use vectors as input.
 	// let mouse		 = createVector(mouseX,mouseY);
   	// let ellipse_start = createVector(200,200);
     	// let ellipse_size  = createVector(50,150);
 	// hit = collidePointEllipseVector(mouse, ellipse_start, ellipse_size)
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
@@ -169,12 +173,12 @@ function draw() {
 	hit = collidePointRect(mouseX,mouseY,200,200,100,150);
 
 
-	// Use vectors as input. 
+	// Use vectors as input.
   	// let mouse        = createVector(mouseX,mouseY);
   	// let rect_start 	= createVector(200,200);
     	// let rect_size	= createVector(50,150);
 	// hit = collidePointRectVector(mouse, rect_start, rect_size);
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
@@ -193,13 +197,13 @@ function draw(){
   //collide point line using the optional buffer with a 0.5 value
 	hit = collidePointLine(mouseX,mouseY,200,300,100,150, 0.5);
 
-	// Use vectors as input. 
+	// Use vectors as input.
 	// let mouse 	= createVector(mouseX, mouseY);
 	// let p1       = createVector(200, 300);
 	// let p2       = createVector(100, 150);
 	// let buffer 	= 0.5;  
 	// hit = collidePointLineVector(mouse, p1, p2, buffer);
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
@@ -228,12 +232,12 @@ function draw() {
 	point(mouseX, mouseY);
 	hit = collidePointArc(mouseX, mouseY, width / 2, height / 2, ARC_RADIUS, ROTATION_ANGLE, ARC_ANGLE);
 
-	// Use vectors as input. 
+	// Use vectors as input.
 	// let mouse 	    = createVector(mouseX, mouseY);
 	// let arcCenter    = createVector(width / 2, height / 2);
 	// let buffer   	= 0.5// optional buffer
 	// hit = collidePointArcVector(mouse, arcCenter, ARC_RADIUS, ROTATION_ANGLE, ARC_ANGLE /*, buffer */);
-		
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
@@ -250,12 +254,12 @@ function draw() {
 	ellipse(mouseX, mouseY, 150,150);
 
 	hit = collideCircleCircle(mouseX,mouseY,150,200,200,100)
-	
-	// Use vectors as input. 
+
+	// Use vectors as input.
   	// let mouse  = createVector(mouseX, mouseY);
     	// let circle = createVector(200,200);
 	// hit = collideCircleCircleVector(mouse, 150, circle, 100)
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
@@ -281,7 +285,7 @@ function draw() {
 	// let mouse      = createVector(mouseX, mouseY);
 	// let rect2_size = createVector(50, 75);
 	// hit = collideRectRectVector(rect_start, rect_size, mouse, rect2_size);
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 
@@ -307,7 +311,7 @@ function draw() {
 	// let rect_size  = createVector(100, 150);
 	// let radius     = 100;
 	// hit = collideRectCircleVector(rect_start, rect_size, mouse, radius);
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
@@ -332,7 +336,7 @@ function draw(){
 	// let p4     = createVector(350, 50);
 	// hit = collideLineLineVector(p1, p2, mouse, p4);
 
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
@@ -370,7 +374,7 @@ function draw(){
 	line(200,300,100,150);
 	ellipse(mouseX, mouseY, 50,50);
 	hit = collideLineCircle(200,300,100,150,mouseX,mouseY,50);
-	
+
 	// Use vectors as input.
 	// let p1     	= createVector(200, 300);
 	// let p2     	= createVector(100, 150);
@@ -426,10 +430,10 @@ function draw() {
 	// let rect_size 	= createVector(100, 150);
 	// hit = collideLineRectVector(mouse, p2, rect_start, rect_size, true);
 
-	//because hit returns a object with .bottom, .top, .left and .right having to check 
-	//if any has hit the rectangle 
+	//because hit returns a object with .bottom, .top, .left and .right having to check
+	//if any has hit the rectangle
 	stroke( (hit.bottom.x  || hit.bottom.y || hit.top.x || hit.top.y || hit.left.x || hit.left.y || hit.right.x || hit.right.y) ? color("red") : 0);
-	  
+
 	//returned object contains top,right,bottom,left objects which each contain x,y values.
 	print("bottomX: " + hit.bottom.x);
 	print("bottomY: " + hit.bottom.y);
@@ -469,11 +473,11 @@ function draw() {
 	ellipse(mouseX, mouseY, 10, 10); //put a small ellipse on our point.
 
 	hit = collidePointPoly(mouseX, mouseY, poly); //3rd parameter is an array of vertices.
-	
+
 	// Use vectors as input.
 	// let mouse = createVector(mouseX, mouseY);
 	// hit = collidePointPolyVector(mouse, poly);
-	
+
 	stroke( (hit) ? color("red") : 0);
 	print("colliding? " + hit);
 }
@@ -509,7 +513,7 @@ function draw() {
 	hit = collideCirclePoly(mouseX, mouseY, 45, poly);
 	//enable the hit detection if the circle is wholly inside the polygon
 	// hit = collideCirclePoly(mouseX, mouseY, 45, poly, true);
-	
+
 
 	// Use vectors as input.
 	// let mouse = createVector(mouseX, mouseY);
@@ -554,7 +558,7 @@ function draw() {
 	hit = collideRectPoly(mouseX,mouseY,45,100,poly);
 	// enable the hit detection if the Rectangle is wholly inside the polygon
 	// hit = collideRectPoly(mouseX, mouseY, 45, 100, poly, true);
-	
+
 	// Use vectors as input.
 	// let mouse     = createVector(mouseX, mouseY);
 	// let rect_size = createVector(45, 100);
@@ -663,7 +667,7 @@ function draw() {
 	}
 	endShape(CLOSE);
 
-		
+
 	hit = collidePolyPoly(poly,randomPoly,true);
 
 	// Vector version does the same thing, here for completeness
@@ -741,12 +745,4 @@ function draw() {
 	stroke((hit) ? color("red") : 0);
 	print("colliding? " + hit)
 }
-```
-
-
-# Package Development
-#### how to minify code for distribution
-```
-npm install -D
-npm run build
 ```
