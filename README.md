@@ -17,8 +17,8 @@ p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 All p5.collide2D functions return `true` if the specified geometry is colliding and `false` if they are not.
 
 ## CDN links
-https://cdn.jsdelivr.net/npm/p5.collide2d  
-https://unpkg.com/p5.collide2d
++ https://cdn.jsdelivr.net/npm/p5.collide2d  
++ https://unpkg.com/p5.collide2d
 
 ## Examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
