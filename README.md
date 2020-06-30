@@ -19,6 +19,36 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
 ## CDN links
 + https://cdn.jsdelivr.net/npm/p5.collide2d  
 + https://unpkg.com/p5.collide2d
+## How to use CDN links
+### Add one of the following two CDN options to your p5.js sketches html file 
+#### Replace X.X.X with the latest version number
+
+```text
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/X.XX.X/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/X.XX.X/addons/p5.sound.min.js"></script>
+```
+```html
+    <script src="https://cdn.jsdelivr.net/npm/p5.collide2d@X.X.X/p5.collide2d.min.js"></script>
+     
+    OR
+
+    <script src="https://unpkg.com/p5.collide2d@X.X.X/p5.collide2d.min.js"></script>
+```
+```text
+	  
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+  </body>
+</html>
+
+```
 
 ## Examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
