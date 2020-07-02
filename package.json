@@ -1,6 +1,6 @@
 {
   "name": "p5.collide2d",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A collision detection library for 2D geometry in p5.js",
   "main": "p5.collide2d.js",
   "dependencies": {},
