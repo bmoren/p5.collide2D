@@ -19,7 +19,17 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
 ## CDN links
 + https://cdn.jsdelivr.net/npm/p5.collide2d  
 + https://unpkg.com/p5.collide2d
+## How to use a hosted version of the p5.collide2D library
+```html
+<!--
+This enables the p5.js core library, it is automatically added within the p5.js web editor.
+You'll need to include the core p5.js before using p5.collide2D. 
+-->
+<script src="https://unpkg.com/p5"></script>
 
+<!--include p5.collide2D addon library-->
+<script src="https://unpkg.com/p5.collide2d"></script> 
+```
 ## Examples
   + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
   + [Button with a callback](https://bmoren.github.io/p5.collide2D/examples/basicButton/index.html)
