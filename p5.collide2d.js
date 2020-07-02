@@ -2,12 +2,12 @@
 Repo: https://github.com/bmoren/p5.collide2D/
 Created by http://benmoren.com
 Some functions and code modified version from http://www.jeffreythompson.org/collision-detection
-Version v0.7.2 | June 22, 2020
+Version v0.7.1 | June 22, 2020
 CC BY-NC-SA 4.0
 */
 
 
-console.log("### p5.collide v0.7.2 ###")
+console.log("### p5.collide v0.7.1 ###")
 
 p5.prototype._collideDebug = false;
 

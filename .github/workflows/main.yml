@@ -26,15 +26,17 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: 12
-              name: Making sure the package-lock and an up-to-date install are in sync
             - run: npm ci
-              name: install dependencies for build script
-            - run: npm install --save-dev
-              name: updates docs to reflect current version number and minifies the code
-            - run: npm run bump
+              name: Making sure the package-lock and an up-to-date install are in sync
 
-              name: Minifies the p5.collide2d.js
+            - run: npm install --save-dev
+              name: install dependencies for build & bump scripts
+
+            - run: npm run bump
+              name: bump version number
+    
             - run: npm run build
+              name: Minifies the p5.collide2d.js
             # Auto commits minified files to the repository
             # Ignore it if you don't want to commit the files to the repository
             - name: Auto committing minified files
