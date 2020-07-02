@@ -1,0 +1,41 @@
+name: auto minify and update library version number
+# this github action is triggered when a
+# release is published to the world
+
+# npm run bump 
+# adds all the current version numbers to the minified code code
+on:
+    push:
+        tags:
+            - "*"
+    release:
+        # for the subtle differences between created and published
+        # refer here for more info
+        # https://github.community/t/what-is-the-created-type-in-on-release/17184
+        types: [created]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - run: npm ci
+            # install dependencies for build script
+            - run: npm install --save-dev
+              name: updates docs to reflect current version number and minifies the code
+            - run: npm run bump 
+              name: minifies the code
+            - run: npm run build
+            # https://github.com/ad-m/github-push-action
+            - name: Commit files
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git commit -m "[Added] bumped version number" -a
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
