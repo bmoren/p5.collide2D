@@ -8,24 +8,31 @@ p5.collide2D contains some versions of, and references to, the functions in [Jef
 
 It's an incredible resource for this kind of work! – [http://www.jeffreythompson.org/collision-detection/](http://www.jeffreythompson.org/collision-detection/)
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
 
-[How to Add a library to your p5.js sketch](https://p5js.org/libraries/)
-
+## Get Started!
 p5.collide2D assumes the default p5.js rectMode(CORNER) and ellipseMode(CENTER)
 
 All p5.collide2D functions return `true` if the specified geometry is colliding and `false` if they are not.
 
-## CDN links
+### Adding p5.collide2D to your project
+
+[Download the latest release](https://github.com/bmoren/p5.collide2D/releases/)
+
+[How to Add a library to your p5.js sketch](https://p5js.org/libraries/)
+
+#### CDN Links
 + https://cdn.jsdelivr.net/npm/p5.collide2d  
 + https://unpkg.com/p5.collide2d
-## How to use a hosted version of the p5.collide2D library
+
+#### How to use a CDN hosted version of the p5.collide2D library
+To include the library via a CDN, add the library's CDN link using a `<script>` tag inside the `index.html` file within your project. 
 ```html
 <!--
 This enables the p5.js core library, it is automatically added within the p5.js web editor.
-You'll need to include the core p5.js before using p5.collide2D. 
+You'll need to include the core p5.js before using p5.collide2D. (this link may not be up to date with the latest version of p5.js)
 -->
-<script src="https://unpkg.com/p5"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
 
 <!--include p5.collide2D addon library-->
 <script src="https://unpkg.com/p5.collide2d"></script> 
@@ -37,8 +44,8 @@ You'll need to include the core p5.js before using p5.collide2D.
   + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide2D/examples/randomPlacement/index.html)
   + [Swords Game](https://bmoren.github.io/p5.collide2D/examples/swords/index.html)
 
-## Using this library with vectors
-As of June 2020, this library now supports vector version of all functions. Simply use the function names below with `Vector` added onto the function name to utilize the vector version of the function. The function's arguments take in vectors instead of x/y values. Each of the examples below now has a commented example to demonstrate vector usage. We will be updating the documentation and examples in the future to make this distinction more clear. This in no way affects the original functionality of the library.
+## Using p5.collide2D with vector inputs
+p5.collide2D supports vector version of all functions. Use the function names below with `Vector` added on to the name to utilize the vector version of the function. The function's arguments will then take in vectors instead of x/y values. Each of the examples below has a commented example to demonstrate vector usage. We will be updating the documentation and examples in the future to make this distinction more clear. This in no way affects the original functionality of the library.
 
 ```javascript
 //Use vectors as input
@@ -47,7 +54,7 @@ let mouse = createVector(mouseX,mouseY);
 hit = collidePointPointVector(p1,mouse,10)
 ```
 
-## Table of Contents
+## Documentation Table of Contents
 ##### Utility
   + [collideDebug()](#collidedebug)
 
@@ -72,7 +79,7 @@ hit = collidePointPointVector(p1,mouse,10)
   + [collidePointTriangle()](#collidepointtriangle)
   + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
 
-## p5.collide2D examples & documentation
+## p5.collide2D Examples & Documentation
 
 #### collideDebug()
 ###### collideDebug(debugMode, size, color)
