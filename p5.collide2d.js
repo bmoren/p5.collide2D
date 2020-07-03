@@ -295,7 +295,7 @@ p5.prototype.collidePointPoly = function(px, py, vertices) {
     var vn = vertices[next];       // n for "next"
 
     // compare position, flip 'collision' variable back and forth
-    if (((vc.y > py && vn.y < py) || (vc.y < py && vn.y > py)) &&
+    if (((vc.y >= py && vn.y < py) || (vc.y < py && vn.y >= py)) &&
          (px < (vn.x-vc.x)*(py-vc.y) / (vn.y-vc.y)+vc.x)) {
             collision = !collision;
     }
@@ -436,9 +436,11 @@ p5.prototype.collidePolyPoly = function(p1, p2, interior) {
     var collision = this.collideLinePoly(vc.x,vc.y,vn.x,vn.y,p2);
     if (collision) return true;
 
-    //check if the 2nd polygon is INSIDE the first
+    //check if the either polygon is INSIDE the other
     if(interior === true){
       collision = this.collidePointPoly(p2[0].x, p2[0].y, p1);
+      if (collision) return true;
+      collision = this.collidePointPoly(p1[0].x, p1[0].y, p2);
       if (collision) return true;
     }
   }
