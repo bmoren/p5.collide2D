@@ -26,12 +26,12 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
 To include the library via a CDN, add the library's CDN link using a `<script>` tag inside the `index.html` file within your project. 
 ```html
 <!--
-This enables the p5.js core library, it's automatically added within the p5.js web editor.
+This enables the p5.js core library (automatically added within the p5.js web editor).
 You'll need to include the core p5.js before using p5.collide2D.
 -->
 <script defer src="https://unpkg.com/p5"></script>
 
-<!--include p5.collide2D addon library-->
+<!-- Includes the p5.collide2D addon library -->
 <script defer src="https://unpkg.com/p5.collide2d"></script>
 ```
 ## Examples
@@ -99,8 +99,8 @@ var hit = false;
 
 function draw() {
     background(255);
-    ellipse(100, 100, 1, 1); //change to 10,10px size for buffer example
-    ellipse(mouseX, mouseY, 1, 1); //change to 10,10px size for buffer example
+    ellipse(100, 100, 1, 1); // change to 10,10px size for buffer example
+    ellipse(mouseX, mouseY, 1, 1); // change to 10,10px size for buffer example
 
     // No buffer zone, most standard example:
     hit = collidePointPoint(100, 100, mouseX, mouseY);
