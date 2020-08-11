@@ -109,7 +109,7 @@ function draw() {
     // hit = collidePointPoint(100, 100, mouseX, mouseY, 10);
 
     // Use vectors as input:
-    // const p1 = createVector(100, 100);
+    // const p1    = createVector(100, 100);
     // const mouse = createVector(mouseX, mouseY);
     // hit = collidePointPointVector(p1, mouse, 10);
 
@@ -137,8 +137,8 @@ function draw() {
     // Use vectors as input:
     // const mouse  = createVector(mouseX, mouseY);
     // const circle = createVector(200, 200);
-    // const diameter = 100;
-    // hit = collidePointCircleVector(mouse, circle, diameter);
+    // const diam   = 100;
+    // hit = collidePointCircleVector(mouse, circle, diam);
 
     stroke(hit ? color('red') : 0);
     print('colliding?', hit);
@@ -160,7 +160,7 @@ function draw() {
     hit = collidePointEllipse(mouseX, mouseY, 200, 200, 50, 150);
 
     // Use vectors as input:
-    // const mouse = createVector(mouseX, mouseY);
+    // const mouse         = createVector(mouseX, mouseY);
     // const ellipse_start = createVector(200, 200);
     // const ellipse_size  = createVector(50, 150);
     // hit = collidePointEllipseVector(mouse, ellipse_start, ellipse_size);
@@ -182,7 +182,7 @@ function draw() {
     hit = collidePointRect(mouseX, mouseY, 200, 200, 100, 150);
 
     // Use vectors as input:
-    // const mouse = createVector(mouseX, mouseY);
+    // const mouse      = createVector(mouseX, mouseY);
     // const rect_start = createVector(200, 200);
     // const rect_size  = createVector(50, 150);
     // hit = collidePointRectVector(mouse, rect_start, rect_size);
@@ -206,9 +206,9 @@ function draw() {
     hit = collidePointLine(mouseX, mouseY, 200, 300, 100, 150, .5);
 
     // Use vectors as input:
-    // const mouse = createVector(mouseX, mouseY);
-    // const p1 = createVector(200, 300);
-    // const p2 = createVector(100, 150);
+    // const mouse  = createVector(mouseX, mouseY);
+    // const p1     = createVector(200, 300);
+    // const p2     = createVector(100, 150);
     // const buffer = 0.5;
     // hit = collidePointLineVector(mouse, p1, p2, buffer);
 
@@ -247,9 +247,9 @@ function draw() {
     hit = collidePointArc(mouseX, mouseY, width / 2, height / 2, ARC_RADIUS, ROTATION_ANGLE, ARC_ANGLE);
 
     // Use vectors as input:
-    // const mouse = createVector(mouseX, mouseY);
+    // const mouse     = createVector(mouseX, mouseY);
     // const arcCenter = createVector(width / 2, height / 2);
-    // const buffer = 0.5 //optional buffer
+    // const buffer    = 0.5 //optional buffer
     // hit = collidePointArcVector(mouse, arcCenter, ARC_RADIUS, ROTATION_ANGLE, ARC_ANGLE /*, buffer */);
 
     stroke(hit ? color('red') : 0);
@@ -449,7 +449,12 @@ function draw() {
 
     // Because hit returns an object with .bottom, .top, .left and .right
     // we have to check if any has hit the rectangle:
-    stroke(hit.bottom.x || hit.bottom.y || hit.top.x || hit.top.y || hit.left.x || hit.left.y || hit.right.x || hit.right.y ? color('red') : 0);
+    stroke(
+      hit.bottom.x || hit.bottom.y ||
+      hit.top.x    || hit.top.y ||
+      hit.left.x   || hit.left.y ||
+      hit.right.x  || hit.right.y ? color('red') : 0
+    );
 
     // Returned object contains top,right,bottom,left objects each containing x,y values:
     print('bottomX:', hit.bottom.x);
@@ -587,7 +592,7 @@ function draw() {
     // hit = collideRectPoly(mouseX, mouseY, 45, 100, poly, true);
 
     // Use vectors as input:
-    // const mouse = createVector(mouseX, mouseY);
+    // const mouse     = createVector(mouseX, mouseY);
     // const rect_size = createVector(45, 100);
 
     // hit = collideRectPolyVector(mouse, rect_size, poly);
