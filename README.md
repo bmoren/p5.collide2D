@@ -148,6 +148,7 @@ function draw() {
 ###### collidePointEllipse(pointX, pointY, ellipseX, ellipseY, ellipseWidth, ellipseHeight )
 Point to ellipse collision.
 It takes the point, the centre of the ellipse, the major and the minor axes (diameters).
+
 ![point ellipse collision](https://user-images.githubusercontent.com/13430702/47784680-98543d80-dd06-11e8-8814-47a37186263a.png)
 ```javascript
 var hit = false;
@@ -219,6 +220,7 @@ function draw() {
 #### collidePointArc()
 ###### collidePointArc(pointX, pointY, arcCenterX, arcCenterY, arcRadius, arcRotationAngle, arcAngle, [buffer])
 Point to arc collision in 2D.
+
 ![point arc example image](https://cloud.githubusercontent.com/assets/9556971/25771905/4a299456-325e-11e7-9455-03bd1396c92d.png)
 ```javascript
 const ARC_RADIUS = 100;
