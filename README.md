@@ -26,7 +26,7 @@ All p5.collide2D functions return `true` if the specified geometry is colliding 
 To include the library via a CDN, add the library's CDN link using a `<script>` tag inside the `index.html` file within your project. 
 ```html
 <!--
-This enables the p5.js core library, it is automatically added within the p5.js web editor.
+This enables the p5.js core library, it's automatically added within the p5.js web editor.
 You'll need to include the core p5.js before using p5.collide2D.
 -->
 <script defer src="https://unpkg.com/p5"></script>
@@ -72,7 +72,7 @@ const hit = collidePointPointVector(p1, mouse, 10);
   + [collideLinePoly()](#collidelinepoly)
   + [collidePolyPoly()](#collidepolypoly)
   + [collidePointTriangle()](#collidepointtriangle)
-  + [collide 2Dprimitive Triangle](#collide-2dprimitive-triangle)
+  + [collide 2D primitive triangle](#collide-2d-primitive-triangle)
 
 ## p5.collide2D Examples & Documentation
 #### collideDebug()
@@ -146,7 +146,8 @@ function draw() {
 ```
 #### collidePointEllipse()
 ###### collidePointEllipse(pointX, pointY, ellipseX, ellipseY, ellipseWidth, ellipseHeight )
-Point to ellipse collision. It takes the point, the centre of the ellipse, the major and the minor axes (diameters).
+Point to ellipse collision.
+It takes the point, the centre of the ellipse, the major and the minor axes (diameters).
 ![point ellipse collision](https://user-images.githubusercontent.com/13430702/47784680-98543d80-dd06-11e8-8814-47a37186263a.png)
 ```javascript
 var hit = false;
@@ -270,7 +271,7 @@ function draw() {
 
     // Use vectors as input:
     // const mouse  = createVector(mouseX, mouseY);
-    // const circle = createVector(200,200);
+    // const circle = createVector(200, 200);
     // hit = collideCircleCircleVector(mouse, 150, circle, 100);
 
     stroke(hit ? color('red') : 0);
@@ -288,7 +289,7 @@ function draw() {
     rect(200, 200, 100, 150);
     rect(mouseX, mouseY, 50, 75);
 
-    hit = collideRectRect(200, 200, 100, 150,mouseX, mouseY, 50, 75);
+    hit = collideRectRect(200, 200, 100, 150, mouseX, mouseY, 50, 75);
 
     // Use vectors as input:
     // const rect_start = createVector(200, 200);
@@ -339,7 +340,7 @@ function draw() {
     line(200, 300, 100, 150);
     line(mouseX, mouseY, 350, 50);
 
-    hit = collideLineLine(200,300,100,150,mouseX,mouseY,350,50);
+    hit = collideLineLine(200, 300, 100, 150, mouseX, mouseY, 350, 50);
 
     // Use vectors as input:
     // const p1    = createVector(200, 300);
@@ -353,7 +354,8 @@ function draw() {
 }
 ```
 ```javascript
-// Return an object containing the x,y position of the intersection using the optional calcIntersection boolean:
+// Return an object containing the x,y position of the intersection
+// using the optional calcIntersection boolean:
 var hit = false;
 
 function draw() {
@@ -427,7 +429,8 @@ function draw() {
 }
 ```
 ```javascript
-// Return an object containing the x,y position of the bottom intersection of the rect using the optional calcIntersection boolean:
+// Return an object containing the x,y position of the bottom intersection of the rect
+// using the optional calcIntersection boolean:
 var hit = false;
 
 function draw() {
@@ -451,12 +454,12 @@ function draw() {
     // Returned object contains top,right,bottom,left objects each containing x,y values:
     print('bottomX:', hit.bottom.x);
     print('bottomY:', hit.bottom.y);
-    print('topX:', hit.top.x);
-    print('topY:', hit.top.y);
-    print('leftX:', hit.left.x);
-    print('leftY:', hit.left.y);
-    print('rightX:', hit.right.x);
-    print('rightY:', hit.right.y);
+    print('topX:',    hit.top.x);
+    print('topY:',    hit.top.y);
+    print('leftX:',   hit.left.x);
+    print('leftY:',   hit.left.y);
+    print('rightX:',  hit.right.x);
+    print('rightY:',  hit.right.y);
 }
 ```
 #### collidePointPoly()
@@ -488,7 +491,7 @@ function draw() {
 
     ellipse(mouseX, mouseY, 10, 10); // put a small ellipse on our point.
 
-    hit = collidePointPoly(mouseX, mouseY, poly); // 3rd parameter is an array of vertices.
+    hit = collidePointPoly(mouseX, mouseY, poly); // 3rd param is an array of vertices.
 
     // Use vectors as input:
     // const mouse = createVector(mouseX, mouseY);
@@ -621,7 +624,7 @@ function setup() {
 function draw() {
     background(255);
 
-    // Draw the polygon by iterating over the 16 created vectors{x, y} stored in poly[]:
+    // Draw the polygon from the 16 created vectors{x, y} stored in poly[]:
     beginShape();
     for (const { x, y } of poly)  vertex(x, y);
     endShape(CLOSE);
@@ -688,7 +691,7 @@ function draw() {
     mouseDiff.set(mouseX, mouseY).sub(randomPoly[0]);
     for (const vec of randomPoly)  vec.add(mouseDiff);
 
-    // Draw the random polygon by iterating over the created vectors{x, y} stored in randomPoly[]:
+    // Draw the random polygon from the created vectors{x, y} stored in randomPoly[]:
     beginShape();
     for (const { x, y } of randomPoly)  vertex(x, y);
     endShape(CLOSE);
@@ -728,7 +731,7 @@ function draw() {
 ```
 #### collideCirclePoly()
 ###### collideCirclePoly(cx, cy, diameter, vertices, interior)
-###### collide 2D primitive triangle
+###### collide-2d-primitive-triangle
 To collide any primitive shape into a triangle, use the corresponding primitive shape with a 3 sided-polygon as your triangle.
 Note: you will have to define your triangle using [p5.Vector](http://p5js.org/reference/#/p5/createVector), see example below.
 + [collideCirclePoly()](#collidecirclepoly) circle to triangle collisions
