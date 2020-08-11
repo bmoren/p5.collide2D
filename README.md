@@ -99,8 +99,8 @@ var hit = false;
 
 function draw() {
     background(255);
-    ellipse(100, 100, 1, 1); // change to 10,10px size for buffer example
-    ellipse(mouseX, mouseY, 1, 1); // change to 10,10px size for buffer example
+    circle(100, 100, 1);       // change to 10,10px size for buffer example
+    circle(mouseX, mouseY, 1); // change to 10,10px size for buffer example
 
     // No buffer zone, most standard example:
     hit = collidePointPoint(100, 100, mouseX, mouseY);
@@ -129,7 +129,7 @@ function setup() {
 
 function draw() {
     background(255);
-    ellipse(200, 200, 100, 100);
+    circle(200, 200, 100);
     point(mouseX, mouseY);
 
     hit = collidePointCircle(mouseX, mouseY, 200, 200, 100);
@@ -264,8 +264,8 @@ var hit = false;
 
 function draw() {
     background(255);
-    ellipse(200, 200, 100, 100);
-    ellipse(mouseX, mouseY, 150, 150);
+    circle(200, 200, 100);
+    circle(mouseX, mouseY, 150);
 
     hit = collideCircleCircle(mouseX, mouseY, 150, 200, 200, 100);
 
@@ -311,7 +311,7 @@ var hit = false;
 function draw() {
     background(255);
     rect(200, 200, 100, 150);
-    ellipse(mouseX, mouseY, 100, 100);
+    circle(mouseX, mouseY, 100);
 
     hit = collideRectCircle(200, 200, 100, 150, mouseX, mouseY, 100);
 
@@ -386,7 +386,7 @@ var hit = false;
 function draw() {
     background(255);
     line(200, 300, 100, 150);
-    ellipse(mouseX, mouseY, 50, 50);
+    circle(mouseX, mouseY, 50);
 
     hit = collideLineCircle(200, 300, 100, 150, mouseX, mouseY, 50);
 
@@ -494,7 +494,7 @@ function draw() {
     for (const { x, y } of poly)  vertex(x, y);
     endShape(CLOSE);
 
-    ellipse(mouseX, mouseY, 10, 10); // put a small ellipse on our point.
+    circle(mouseX, mouseY, 10); // put a small ellipse on our point.
 
     hit = collidePointPoly(mouseX, mouseY, poly); // 3rd param is an array of vertices.
 
@@ -536,7 +536,7 @@ function draw() {
     for (const { x, y } of poly)  vertex(x, y);
     endShape(CLOSE);
 
-    ellipse(mouseX, mouseY, 45, 45);
+    circle(mouseX, mouseY, 45);
 
     hit = collideCirclePoly(mouseX, mouseY, 45, poly);
 
@@ -719,7 +719,7 @@ var hit = false;
 function draw() {
     background(255);
     triangle(300, 200, 350, 300, 250, 300);
-    ellipse(mouseX, mouseY, 10, 10);
+    circle(mouseX, mouseY, 10);
 
     hit = collidePointTriangle(mouseX, mouseY, 300, 200, 350, 300, 250, 300);
 
@@ -764,7 +764,7 @@ function draw() {
     // Or:
     // triangle(triPoly[0].x, triPoly[0].y, triPoly[1].x, triPoly[1].y, triPoly[2].x, triPoly[2].y);
 
-    ellipse(mouseX, mouseY, 45, 45);
+    circle(mouseX, mouseY, 45);
 
     hit = collideCirclePoly(mouseX, mouseY, 45, triPoly);
 
