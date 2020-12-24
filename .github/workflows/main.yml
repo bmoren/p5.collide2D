@@ -1,0 +1,46 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Auto build min.js files on commit
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    # This workflow contains a single job called "build"
+    build:
+        # The type of runner that the job will run on
+        runs-on: ubuntu-latest
+
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so auto-minify job can access it
+
+            - uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
+            - run: npm ci
+              name: Making sure the package-lock and an up-to-date install are in sync
+
+            - run: npm install --save-dev
+              name: install dependencies for build & bump scripts
+
+            - run: npm run bump
+              name: bump version number
+    
+            - run: npm run build
+              name: Minifies the p5.collide2d.js
+            # Auto commits minified files to the repository
+            # Ignore it if you don't want to commit the files to the repository
+            - name: Auto committing minified files
+              uses: stefanzweifel/git-auto-commit-action@v3.0.0
+              with:
+                  commit_message: "Github Action: Auto Minified JS and CSS files"
+                  branch: ${{ github.ref }}
