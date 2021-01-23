@@ -35,11 +35,11 @@ You'll need to include the core p5.js before using p5.collide2D.
 <script defer src="https://unpkg.com/p5.collide2d"></script>
 ```
 ## Examples
-  + [Basic Usage](https://bmoren.github.io/p5.collide2D/examples/basic/index.html)
-  + [Button with a callback](https://bmoren.github.io/p5.collide2D/examples/basicButton/index.html)
-  + [Object oriented collision](https://bmoren.github.io/p5.collide2D/examples/objectCollision/index.html)
-  + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide2D/examples/randomPlacement/index.html)
-  + [Swords Game](https://bmoren.github.io/p5.collide2D/examples/swords/index.html)
+  + [Basic Usage](https://editor.p5js.org/p52dcollide/sketches/EKGWIHFYR)
+  + [Button with a callback](https://editor.p5js.org/p52dcollide/sketches/BjDVckvWE)
+  + [Object oriented collision](https://editor.p5js.org/p52dcollide/sketches/HOf1GOY4S)
+  + [Randomly placing objects without touching](https://editor.p5js.org/p52dcollide/sketches/WYb8vT3Mh)
+  + [Swords Game](https://editor.p5js.org/p52dcollide/sketches/DamkQQ2So)
   + [Collection of example use of functions](https://editor.p5js.org/p52dcollide/collections/taUUdSGhj)
 
 ## Using p5.collide2D with vector inputs
