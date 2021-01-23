@@ -40,6 +40,7 @@ You'll need to include the core p5.js before using p5.collide2D.
   + [Object oriented collision](https://bmoren.github.io/p5.collide2D/examples/objectCollision/index.html)
   + [Randomly placing objects without touching](https://bmoren.github.io/p5.collide2D/examples/randomPlacement/index.html)
   + [Swords Game](https://bmoren.github.io/p5.collide2D/examples/swords/index.html)
+  + [Collection of example use of functions](https://editor.p5js.org/p52dcollide/collections/taUUdSGhj)
 
 ## Using p5.collide2D with vector inputs
 p5.collide2D supports vector version of all functions. Use the function names below with `Vector` added on to the name to utilize the vector version of the function. The function's arguments will then take in vectors instead of x/y values. Each of the examples below has a commented example to demonstrate vector usage. We will be updating the documentation and examples in the future to make this distinction more clear. This in no way affects the original functionality of the library.
@@ -93,7 +94,9 @@ function setup() {
 ```
 #### collidePointPoint()
 ###### collidePointPoint(x, y, x2, y2, [buffer])
-Point to point collision with an optional buffer zone.
+Point to point collision with an optional buffer zone.  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/iW0xNDDVm)
 ```javascript
 var hit = false;
 
@@ -119,7 +122,9 @@ function draw() {
 ```
 #### collidePointCircle()
 ###### collidePointCircle(pointX, pointY, circleX, circleY, diameter)
-Point to circle collision in 2D. Assumes ellipseMode(CENTER);
+Point to circle collision in 2D. Assumes ellipseMode(CENTER);  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/PLy8ksEoR)
 ```javascript
 var hit = false;
 
@@ -149,7 +154,9 @@ function draw() {
 Point to ellipse collision.
 It takes the point, the centre of the ellipse, the major and the minor axes (diameters).
 
-![point ellipse collision](https://user-images.githubusercontent.com/13430702/47784680-98543d80-dd06-11e8-8814-47a37186263a.png)
+![point ellipse collision](https://user-images.githubusercontent.com/13430702/47784680-98543d80-dd06-11e8-8814-47a37186263a.png)  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/nmVQQ2jEC)
 ```javascript
 var hit = false;
 
@@ -172,7 +179,9 @@ function draw() {
 ```
 #### collidePointRect()
 ###### collidePointRect(pointX, pointY, x, y, width, height)
-Point to rect collision in 2D. Assumes rectMode(CORNER);
+Point to rect collision in 2D. Assumes rectMode(CORNER);  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/HtWDH-bHv)
 ```javascript
 var hit = false;
 
@@ -194,7 +203,9 @@ function draw() {
 ```
 #### collidePointLine()
 ###### collidePointLine(pointX, pointY, x, y, x2, y2, [buffer])
-Point to line collision in 2D. Includes and optional buffer which expands the hit zone on the line (default buffer is 0.1).
+Point to line collision in 2D. Includes and optional buffer which expands the hit zone on the line (default buffer is 0.1).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/IvJPamfGk)
 ```javascript
 var hit = false;
 
@@ -221,7 +232,9 @@ function draw() {
 ###### collidePointArc(pointX, pointY, arcCenterX, arcCenterY, arcRadius, arcRotationAngle, arcAngle, [buffer])
 Point to arc collision in 2D.
 
-![point arc example image](https://cloud.githubusercontent.com/assets/9556971/25771905/4a299456-325e-11e7-9455-03bd1396c92d.png)
+![point arc example image](https://cloud.githubusercontent.com/assets/9556971/25771905/4a299456-325e-11e7-9455-03bd1396c92d.png)  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/cx7CEAJsJ)
 ```javascript
 const ARC_RADIUS = 100;
 const ARC_ANGLE = Math.PI / 3;
@@ -260,7 +273,9 @@ function draw() {
 ```
 #### collideCircleCircle()
 ###### collideCircleCircle(circleX, circleY, circleDiameter, circleX2, circleY2, circleDiameter2)
-Circle to circle collision in 2D. Assumes ellipseMode(CENTER);
+Circle to circle collision in 2D. Assumes ellipseMode(CENTER);  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/UjArR74hB)
 ```javascript
 var hit = false;
 
@@ -282,7 +297,9 @@ function draw() {
 ```
 #### collideRectRect()
 ###### collideRectRect(x, y, width, height, x2, y2, width2, height2 )
-Rect to rect collision in 2D. Assumes rectMode(CORNER);
+Rect to rect collision in 2D. Assumes rectMode(CORNER);  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/by-l5Y_cf)
 ```javascript
 var hit = false;
 
@@ -306,7 +323,9 @@ function draw() {
 ```
 #### collideRectCircle()
 ###### collideRectCircle(x1, y1, width1, height1, cx, cy, diameter)
-Rect to circle collision in 2D. Assumes rectMode(CORNER) && ellipseMode(CENTER);
+Rect to circle collision in 2D. Assumes rectMode(CORNER) && ellipseMode(CENTER);  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/QDTBZgqVd)
 ```javascript
 var hit = false;
 
@@ -332,7 +351,9 @@ function draw() {
 ###### collideLineLine(x1, y1, x2, y2, x3, y3, x4, y4, [calcIntersection])
 Line to line collision in 2D. Takes an optional boolean parameter which calculates the intersection point.
 If enabled it will return an object containing the x,y position of the collision intersection.
-If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
+If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/WGhIBE1Fe)
 ```javascript
 // Basic example:
 var hit = false;
@@ -354,7 +375,10 @@ function draw() {
     stroke(hit ? color('red') : 0);
     print('colliding?', hit);
 }
-```
+```  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/zW0D99RYh)
+
 ```javascript
 // Return an object containing the x,y position of the intersection
 // using the optional calcIntersection boolean:
@@ -381,7 +405,9 @@ function draw() {
 ```
 #### collideLineCircle()
 ###### collideLineCircle(x1,  y1,  x2,  y2,  cx,  cy,  diameter)
-Point to circle collision in 2D. Has a [debug mode](#collidedebug).
+Point to circle collision in 2D. Has a [debug mode](#collidedebug).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/1SpUuQpvH)
 ```javascript
 var hit = false;
 
@@ -407,7 +433,9 @@ function draw() {
 ###### collideLineRect(x1, y1, x2, y2, rx, ry, rw, rh, [calcIntersection])
 Line to rectangle collision in 2d. Takes and optional boolean parameter which calculates the intersection points.
 If enables it will return an object containing objects of the top,left,bottom,right X,Y intersection positions.
-If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).
+If no intersection occurs, it will return an object containing x,y values as false. Has a [debug mode](#collidedebug).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/9SGFAmJWY)
 ```javascript
 // Basic example:
 var hit = false;
@@ -429,7 +457,9 @@ function draw() {
     stroke(hit ? color('red') : 0);
     print('colliding?', hit);
 }
-```
+```  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/Lh8SaVtYt)
 ```javascript
 // Return an object containing the x,y position of the bottom intersection of the rect
 // using the optional calcIntersection boolean:
@@ -473,7 +503,9 @@ function draw() {
 ###### collidePointPoly(pointX,pointY,vectorArray)
 Point to poly collision in 2D.
 Takes a point x,y and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points which contain the x,y positions of the polygon.
-This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself.
+This function works with x-sided polygons, and "collapsed" polygons where a single polygon shape overlaps itself.  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/YOsnt24Jj)
 ```javascript
 var hit = false;
 const poly = []; // stores the vertices for our polygon.
@@ -514,7 +546,9 @@ Circle to poly collision in 2D. Takes a circle x,y,diameter and an array of [p5.
 which contain the x,y positions of the polygon. This function works with x-sided polygons, and "collapsed" polygons
 where a single polygon shape overlaps itself. Takes an optional 5th 'true' boolean parameter which enables the collision detection
 if the circle is wholly inside the polygon. The interior detection is off by default
-to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
+to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/3mohbMIqL)
 ```javascript
 var hit = false;
 const poly = []; // stores the vertices for our polygon.
@@ -562,7 +596,9 @@ Rect to poly collision in 2D. Takes a rect x,y,width,height and an array of [p5.
 which contain the x,y positions of the polygon. This function works with x-sided polygons,
 and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 6th 'true' boolean parameter
 which enables the collision detection if the rect is wholly inside the polygon.
-The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
+The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/U0gM__qD2)
 ```javascript
 var hit = false;
 const poly = []; // stores the vertices for our polygon.
@@ -609,7 +645,9 @@ function draw() {
 ###### collideLinePoly(x1, y1, x2, y2, vertices)
 Line to poly collision in 2D. Takes a line x,y,x2,y2 and an array of [p5.Vector](http://p5js.org/reference/#/p5/createVector) points
 which contain the x,y positions of the polygon. This function works with x-sided polygons and "collapsed" polygons
-where a single polygon shape overlaps itself. Has a [debug mode](#collidedebug).
+where a single polygon shape overlaps itself. Has a [debug mode](#collidedebug).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/PuSs-b-qh)
 ```javascript
 var hit = false;
 const poly = Array(16).fill(); // stores the vertices for our polygon.
@@ -655,7 +693,9 @@ Polygon to polygon collision in 2D. Takes a 2 arrays of [p5.Vector](http://p5js.
 which contain the x,y positions of the polygons. This function works with x-sided polygons,
 and "collapsed" polygons where a single polygon shape overlaps itself. Takes an optional 3rd 'true' boolean parameter
 which enables the collision detection if the polygon is wholly inside the other polygon.
-The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).
+The interior detection is off by default to save evaluating all of the edges of the polygon a second time. Has a [debug mode](#collidedebug).  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/_D8hrOFvC)
 ```javascript
 // Example adapted from Jeffrey Thompson:
 var mouseDiff, hit = false;
@@ -714,7 +754,9 @@ function draw() {
 ```
 #### collidePointTriangle()
 ###### collidePointTriangle(px, py, x1, y1, x2, y2, x3, y3)
-Point to triangle collision in 2D. You could use [collidePointPoly()](#collidepointpoly) to do this as well, but this is more efficient.
+Point to triangle collision in 2D. You could use [collidePointPoly()](#collidepointpoly) to do this as well, but this is more efficient.  
+
+[live example](https://editor.p5js.org/p52dcollide/sketches/dEz6jlWHd)
 ```javascript
 var hit = false;
 
@@ -744,7 +786,9 @@ Note: you will have to define your triangle using [p5.Vector](http://p5js.org/re
 + [collideCirclePoly()](#collidecirclepoly) circle to triangle collisions
 + [collideRectPoly()](#colliderectpoly) rect to triangle collisions
 + [collideLinePoly()](#collidelinepoly) line to triangle collisions
-+ [collidePolyPoly()](#collidepolypoly) triangle to triangle collisions
++ [collidePolyPoly()](#collidepolypoly) triangle to triangle collisions  
+
+[Live example](https://editor.p5js.org/p52dcollide/sketches/eEhoVQNvP)
 ```javascript
 var hit = false;
 const triPoly = [];
