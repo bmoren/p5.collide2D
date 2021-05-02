@@ -34,13 +34,13 @@ You'll need to include the core p5.js before using p5.collide2D.
 <!-- Includes the p5.collide2D addon library -->
 <script defer src="https://unpkg.com/p5.collide2d"></script>
 ```
-## Examples
+## Live Examples in the p5.js editor
+  + [Collection of all examples of collision functions](https://editor.p5js.org/p52dcollide/collections/taUUdSGhj)
   + [Basic Usage](https://editor.p5js.org/p52dcollide/sketches/EKGWIHFYR)
   + [Button with a callback](https://editor.p5js.org/p52dcollide/sketches/BjDVckvWE)
   + [Object oriented collision](https://editor.p5js.org/p52dcollide/sketches/HOf1GOY4S)
   + [Randomly placing objects without touching](https://editor.p5js.org/p52dcollide/sketches/WYb8vT3Mh)
   + [Swords Game](https://editor.p5js.org/p52dcollide/sketches/DamkQQ2So)
-  + [Collection of example use of functions](https://editor.p5js.org/p52dcollide/collections/taUUdSGhj)
 
 ## Using p5.collide2D with vector inputs
 p5.collide2D supports vector version of all functions. Use the function names below with `Vector` added on to the name to utilize the vector version of the function. The function's arguments will then take in vectors instead of x/y values. Each of the examples below has a commented example to demonstrate vector usage. We will be updating the documentation and examples in the future to make this distinction more clear. This in no way affects the original functionality of the library.
