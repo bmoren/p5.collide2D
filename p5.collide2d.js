@@ -6,7 +6,6 @@ Version v0.7.3 | June 22, 2020
 CC BY-NC-SA 4.0
 */
 
-
 console.log("### p5.collide v0.7.3 ###")
 
 p5.prototype._collideDebug = false;
@@ -281,6 +280,10 @@ p5.prototype.collideLineRectVector = function(p1, p2, r, rsz, calcIntersection){
 
 p5.prototype.collidePointPoly = function(px, py, vertices) {
   var collision = false;
+  // if bounding boxes does not collide then the poly does not (performace)
+  var rect = boundingBoxPolyVector(vertices);
+  var hit = collidePointRectVector(this.createVector(px,py),rect.position, rect.size);
+  if(!hit) return false;
 
   // go through each of the vertices, plus the next vertex in the list
   var next = 0;
@@ -314,6 +317,10 @@ p5.prototype.collideCirclePoly = function(cx, cy, diameter, vertices, interior) 
   if (interior === undefined){
     interior = false;
   }
+  // if bounding boxes does not collide then the poly does not (performace)
+  var rect = boundingBoxPolyVector(vertices);
+  var hit = collideRectCircleVector(rect.position, rect.size, this.createVector(cx,cy), diameter);
+  if(!hit) return false;
 
   // go through each of the vertices, plus the next vertex in the list
   var next = 0;
@@ -351,6 +358,11 @@ p5.prototype.collideRectPoly = function( rx, ry, rw, rh, vertices, interior) {
   if (interior == undefined){
     interior = false;
   }
+  
+  // if bounding boxes does not collide then the poly does not (performace)
+  var rect = boundingBoxPoly(vertices);
+  var hit = collideRectRect(rx, ry, rw, rh, rect.x, rect.y, rect.w, rect.h);
+  if(!hit) return false;
 
   // go through each of the vertices, plus the next vertex in the list
   var next = 0;
@@ -385,8 +397,14 @@ p5.prototype.collideRectPolyVector = function(r, rsz, vertices, interior){
 
 p5.prototype.collideLinePoly = function(x1, y1, x2, y2, vertices) {
 
+  // if bounding boxes does not collide then the poly does not (performace)
+  var rect = boundingBoxPoly(vertices);
+  var hit = collideLineRect(x1, y1, x2, y2, rect.x, rect.y, rect.w, rect.h);
+  if(!hit) return false;
+  
   // go through each of the vertices, plus the next vertex in the list
   var next = 0;
+  
   for (var current=0; current<vertices.length; current++) {
 
     // get next vertex in list if we've hit the end, wrap around to 0
@@ -419,6 +437,11 @@ p5.prototype.collidePolyPoly = function(p1, p2, interior) {
   if (interior === undefined){
     interior = false;
   }
+  // if bounding boxes does not collide then the poly does not (performace)
+  var rect1 = boundingBoxPolyVector(p1);
+  var rect2 = boundingBoxPolyVector(p2);
+  var hit = collideRectRectVector(rect1.position, rect1.size, rect2.position, rect2.size);
+  if(!hit) return false;
 
   // go through each of the vertices, plus the next vertex in the list
   var next = 0;
@@ -519,3 +542,28 @@ p5.prototype.collidePointArc = function(px, py, ax, ay, arcRadius, arcHeading, a
 p5.prototype.collidePointArcVector = function(p1, a, arcRadius, arcHeading, arcAngle, buffer){
   return p5.prototype.collidePointArc(p1.x, p1.y, a.x, a.y, arcRadius, arcHeading, arcAngle, buffer);
 }
+
+p5.prototype.boundingBoxPoly = function(p1){
+  var minX = Infinity;
+  var maxX = -Infinity;
+  var minY = Infinity;
+  var maxY = -Infinity;
+  // get minimum and maximum values
+  for (var current=0; current<p1.length; current++) {
+    minX = this.min(minX, p1[current].x);
+    maxX = this.max(maxX, p1[current].x);
+    minY = this.min(minY, p1[current].y);
+    maxY = this.max(maxY, p1[current].y);
+  }
+
+  return {"x": minX, "y": minY, "w": maxX-minX, "h":maxY-minY};
+}
+
+p5.prototype.boundingBoxPolyVector = function(p1){
+  var rect = p5.prototype.boundingBoxPoly(p1);
+  var pos = this.createVector(rect.x, rect.y);
+  var size = this.createVector(rect.w, rect.h);
+  return {"position": pos, "size": size};
+}
+
+
